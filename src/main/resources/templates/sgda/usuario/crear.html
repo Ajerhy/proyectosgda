@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Crear Usuario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Bienvenido SGDA APP</h1>
+        <div>TODO write content</div> 
+        
+        <form th:action="@{/usuario/guardar}" method="POST">
+            Formulario Usuario
+            <input type="text" name="USUARIO" value="" />
+            <input type="password" name="CLAVE" value="" />
+            
+            <input type="submit" value="Guardar" />
+        </form>
+        
+    </body>
+</html>
