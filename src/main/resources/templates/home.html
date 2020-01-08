@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title th:text="${home}"></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Bienvenido SGDA APP</h1>
+        
+        <h2>Oferta de Trabajo</h2>
+        <h3 th:text="'Titulo: ' + ${nombre}"></h3>
+        <h3 th:text="'Fecha Publicacion: ' + ${fecha}"></h3>
+        <h3 th:text="'Salario Ofrecido: ' + ${salario}"></h3>
+        <h3 th:text="'Vigente: ' + ${vigente == 1} ? 'Activo':'Inactivo'"></h3>
+        
+        <h3>
+            <span th:if="${vigente == 1}">Activo</span>
+            <span th:unless="${vigente == 1}">Inactivo</span>
+        </h3>
+
+      
+        
+        <!--
+        <p th:text="${xx}"> App</p>
+        <h2> Hoy es [[${fecha}]]</h2>
+        -->
+        
+    </body>
+</html>

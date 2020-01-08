@@ -1,0 +1,4 @@
+net\sgda\model\Usuario.class
+net\sgda\ProyectosgdaApplication.class
+net\sgda\controller\UsuarioController.class
+net\sgda\controller\HomeController.class
