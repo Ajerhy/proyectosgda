@@ -1,21 +1,50 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Crear Usuario</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <head th:replace="base/tabla::head">
+	<meta charset="UTF-8"/>
     </head>
-    <body>
-        <h1>Bienvenido SGDA APP</h1>
-        <div>TODO write content</div> 
+    
+        <body class="hold-transition sidebar-mini">
+            <div class="wrapper">
+                
+                <div th:replace="base/dashboard :: navbar"></div>
+                <aside th:replace="base/dashboard :: sidebar"></aside>
+                
+                <div class="content-wrapper">
+                    
+                    <form class="form-horizontal" th:action="@{/usuario/guardar}" method="POST">
+                        <div class="box-body">
+                          <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">Usuario</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control"  name="USUARIO" id="inputEmail3" placeholder="Usuario">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                            <div class="col-sm-10">
+                              <input type="password" class="form-control" name="CLAVE" id="inputPassword3" placeholder="Password">
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                          <button type="reset" class="btn btn-default">Cancelar</button>
+                          <button type="submit" class="btn btn-info pull-right">Guardar</button>
+                        </div>
+                        <!-- /.box-footer -->
+                    </form>
+                    
+                </div>
+                
+                <aside th:replace="base/dashboard :: barra_lateral"></aside>
+                <footer th:replace="base/dashboard :: footer"></footer>
+                
+            </div>
         
-        <form th:action="@{/usuario/guardar}" method="POST">
-            Formulario Usuario
-            <input type="text" name="USUARIO" value="" />
-            <input type="password" name="CLAVE" value="" />
+            <div th:replace="base/dashboard :: js"></div>
             
-            <input type="submit" value="Guardar" />
-        </form>
-        
     </body>
+    
 </html>

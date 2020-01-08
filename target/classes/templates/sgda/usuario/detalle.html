@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <head th:replace="base/tabla::head">
+	<meta charset="UTF-8"/>
     </head>
-    <body>
-        <h1>Bienvenido SGDA APP</h1>
-        <div>TODO write content</div> 
+    
+    <body class="hold-transition sidebar-mini">
+        
+        <div class="wrapper">
+            
+            <div th:replace="base/dashboard :: navbar"></div>
+            <aside th:replace="base/dashboard :: sidebar"></aside>
+            
+            <div class="content-wrapper">
+                
+                <!--h3 th:text="${usuario.ID_USUARIO}"></h3-->
+                <h3 th:text="${usuario.USUARIO}"></h3>
+                <h3 th:text="${usuario.CLAVE}"></h3>
+            
+            </div>
+            
+            <aside th:replace="base/dashboard :: barra_lateral"></aside>
+            <footer th:replace="base/dashboard :: footer"></footer>
+            
+        </div>
+        
+        <div th:replace="base/dashboard :: js"></div>
+        
     </body>
 </html>

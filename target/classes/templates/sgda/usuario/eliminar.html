@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    
+    <head th:replace="base/tabla::head">
+	<meta charset="UTF-8"/>
+    </head>
+    
+    <body class="hold-transition sidebar-mini">
+        
+        <div class="wrapper">
+            
+            <div th:replace="base/dashboard :: navbar"></div>
+            <aside th:replace="base/dashboard :: sidebar"></aside>
+            
+            <div class="content-wrapper">
+                
+                <h1> Usuario Borrado ID [[${ID_USUARIO}]] </h1>
+            
+            </div>
+            
+            <aside th:replace="base/dashboard :: barra_lateral"></aside>
+            <footer th:replace="base/dashboard :: footer"></footer>
+            
+        </div>
+        
+        <div th:replace="base/dashboard :: js"></div>
+        
+    </body>
+</html>
