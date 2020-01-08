@@ -10,7 +10,11 @@ Proyectosda
 **SISTEMA WEB**
 *   La primera versión se lanzará a finales de 2017. Feature requests and bug reports
 
-Framework Spring
+Framework Spring Boot
+
+Web
+Thymeleaf
+Devtools
 
 Netbean
 *******
