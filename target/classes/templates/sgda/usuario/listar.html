@@ -52,6 +52,8 @@
                                         <th>ID</th>
                                         <th>Usuario</th>
                                         <th>Password</th>
+                                        <th>Estado</th>
+                                        <th>Imagen</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -63,6 +65,15 @@
                                         <td th:text="${usuario.ID_USUARIO}"></td>
                                         <td th:text="${usuario.USUARIO}"></td>
                                         <td th:text="${usuario.CLAVE}"></td>
+                                        <td>
+                                            <!--th:text="${usuario.ESTADO}"-->
+                                            <span th:if="${usuario.ESTADO==1}" class="badge badge-success">Activo</span>
+                                            <span th:unless="${usuario.ESTADO==1}" class="badge badge-danger">Inactivo</span>
+                                        </td>
+                                        <td>
+                                            <img th:src="@{/img/{img} ( img=${usuario.IMAGEN} )}" class="img-fluid" width="20" height="20">
+                                        </td>
+                                        
                                         <td> Idea </td>
                                     </tr>
                                 </tbody>
