@@ -40,7 +40,7 @@ public class UsuarioControlador {
     //@GetMapping("usuario/crear")
     @RequestMapping(value = "/crear", method=RequestMethod.GET)
     public String CrearUsuario(Model model){
-        model.addAttribute("titulo","Formulario Usuario");
+        model.addAttribute("titulo","Crear Usuario");
         model.addAttribute("link","/usuario/crear");
         return "sgda/usuario/crear";
     }

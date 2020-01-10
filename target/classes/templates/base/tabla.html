@@ -8,7 +8,7 @@
         <title th:text="${titulo}"></title>
 
         <!-- Icon -->
-        <link th:href="@{/favicon.png}" rel="shortcut icon" type="image/x-icon">
+        <link th:href="@{/favicon.ico}" rel="shortcut icon" type="image/x-icon">
         <!-- Font Awesome Icons -->
         <link rel="stylesheet" th:href="@{/plugins/fontawesome-free/css/all.min.css}">
         <!-- Ionicons -->
@@ -85,6 +85,10 @@
             <!-- Control Sidebar -->
             <aside th:fragment="barra_lateral" class="control-sidebar control-sidebar-dark">
                 <!-- Control sidebar content goes here -->
+                <div class="p-3">
+                    <h5>Titulo</h5>
+                    <p>Contenido de la barra lateral</p>
+                </div>
             </aside>
             <!-- /.control-sidebar -->
             
@@ -103,7 +107,7 @@
             <!-- AdminLTE App -->
             <script th:src="@{/dist/js/adminlte.min.js}"></script>
             <!-- AdminLTE for demo purposes -->
-            <script th:src="@{/dist/js/demo.js}"></script>
+            <!--script th:src="@{/dist/js/demo.js}"></script-->
             <!-- page script -->
             <script>
               $(function () {

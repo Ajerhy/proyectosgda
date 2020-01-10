@@ -1,45 +1,95 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    
     <head th:replace="base/tabla::head">
 	<meta charset="UTF-8"/>
     </head>
     
-        <body class="hold-transition sidebar-mini">
-            <div class="wrapper">
-                
-                <div th:replace="base/dashboard :: navbar"></div>
-                <aside th:replace="base/dashboard :: sidebar"></aside>
-                
+    <body class="hold-transition sidebar-mini">
+        <div class="wrapper">
+            
+            <!--th:insert-->
+            <!--div th:replace="base/dashboard :: navbar"></div-->
+            <nav th:replace="base/navbar :: navbar"></nav>
+            <!--aside th:replace="base/dashboard :: sidebar"></aside-->
+            <aside th:replace="base/sidebar :: sidebar"></aside>
+            
                 <div class="content-wrapper">
                     
-                    <form class="form-horizontal" th:action="@{/usuario/guardar}" method="POST">
-                        <div class="box-body">
-                          <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Usuario</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control"  name="USUARIO" id="inputEmail3" placeholder="Usuario">
+                    <!-- Barra -->
+                    <section class="content-header">
+                          <div class="container-fluid">
+                            <div class="row mb-2">
+                              <div class="col-sm-6">
+
+                                <h5 class="m-0 text-dark">Crear Usuarios &nbsp;
+                                    
+                                </h5>
+
+
+                              </div>
+                              <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                  <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                  <li class="breadcrumb-item active">Usuario</li>
+                                </ol>
+                              </div>
                             </div>
                           </div>
-                          <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                            <div class="col-sm-10">
-                              <input type="password" class="form-control" name="CLAVE" id="inputPassword3" placeholder="Password">
+                    </section>
+                    <!-- End Barra -->
+                    
+                    <!-- Contenido -->
+                    <section class="content">
+                        <form th:action="@{/usuario/guardar}" method="POST">
+                            <div class="col-xl-12 col-md-12 mb-12">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Formulario Usuario
+                                                </div>
+
+                                                <div class="dropdown-divider"></div>
+
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <label for="id_fecha_compra">Usuario:</label>
+                                                            <input type="text" name="USUARIO" placeholder="Usuario" maxlength="50" class="form-control" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="id_descripcion">Passwoed:</label>
+                                                            <input type="text" name="CLAVE" placeholder="Password" maxlength="50" class="form-control"  required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Botones -->
+                                        <div class="dropdown-divider"></div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <button type="submit" class="btn btn-danger"><span class="fa fa-save"></span> Guardar</button>
+                                                <button type="reset" class="btn btn-success"><i class="far fa-hand-point-left"></i> Cancelar</button>
+                                            </div>
+                                        </div>
+                                        <!-- Fin Botones -->
+
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                        </div>
-                        <!-- /.box-body -->
-                        <div class="box-footer">
-                          <button type="reset" class="btn btn-default">Cancelar</button>
-                          <button type="submit" class="btn btn-info pull-right">Guardar</button>
-                        </div>
-                        <!-- /.box-footer -->
-                    </form>
+                        </form>
+                    </section>
+                    <!-- End Contenido -->
                     
                 </div>
                 
                 <aside th:replace="base/dashboard :: barra_lateral"></aside>
-                <footer th:replace="base/dashboard :: footer"></footer>
+                <footer th:insert="base/footer :: footer" class="main-footer"></footer>
+                <!--footer th:replace="base/dashboard :: footer"></footer-->
                 
             </div>
         
