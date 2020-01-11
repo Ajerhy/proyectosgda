@@ -1,19 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package net.sgda.controlador;
 
-import java.util.LinkedList;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+
 import net.sgda.modelo.Usuario;
 import net.sgda.servicio.IUsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,12 +47,39 @@ public class UsuarioControlador {
     }
     
     //@GetMapping("usuario/guardar")
-    @RequestMapping(value = "/guardar", method=RequestMethod.POST)
+    //@RequestMapping(value = "/guardar", method=RequestMethod.POST)
+    @PostMapping("/guardar")   
+    public String GuardarUsuario(Usuario usuario,Model model){
+        //Configurar de String a Date
+        servicioUsuario.guardar(usuario);
+        model.addAttribute("titulo","Listar Usuario");
+        System.out.println("Usuarios:"+usuario);
+        //model.addAttribute("usuario",Usuario);
+        //return "sgda/usuario/detalle";
+        return "sgda/usuario/listusuario";
+        //return "sgda/usuario/listar";
+    }
+    
+    @InitBinder
+    public void initBinder(WebDataBinder webDataBinder){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat,false));
+    }
+    
+    //@GetMapping("usuario/guardar")
+    @RequestMapping(value = "/guardar1", method=RequestMethod.POST)
     //public String GuardarUsuario(){
-    public String GuardarUsuario(@RequestParam("USUARIO") String Usuario,@RequestParam("CLAVE") String Clave,Model model){
-        System.out.println("Usuario:"+Usuario+"/n Password:"+Clave);
-        model.addAttribute("usuario",Usuario);
-        return "sgda/usuario/detalle";
+    public String GuardarUsuario1(
+            @RequestParam("USUARIO") String Usuario,
+            @RequestParam("CLAVE") String Clave,
+            @RequestParam("ESTADO") boolean Estado,
+            Model model){
+        
+        model.addAttribute("titulo","Listar Usuario");
+        System.out.println("Usuario:"+Usuario+"/n Password:"+Clave+"/n Estado:"+Estado);
+        //model.addAttribute("usuario",Usuario);
+        //return "sgda/usuario/detalle";
+        return "sgda/usuario/listusuario";
         //return "sgda/usuario/listar";
     }
     

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package net.sgda.servicio;
 
 import java.text.SimpleDateFormat;
@@ -79,6 +74,12 @@ public class UsuarioServicioImpl implements IUsuarioServicio{
             }
         }
         return null;
+    }
+
+    @Override
+    public void guardar(Usuario usuario) {
+        lista.add(usuario);
+    
     }
     
 }

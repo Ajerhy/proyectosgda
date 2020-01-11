@@ -1,20 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package net.sgda.modelo;
 
-/**
- *
- * @author Hp
- */
+import java.util.Date;
+
 public class Usuario {
     private Integer ID_USUARIO;
     private String USUARIO;
     private String CLAVE;
     private boolean ESTADO;
     private String IMAGEN="no-image.png";
+    private String DETALLE;
+    
+    private Date REGISTRO;
+    private Date MODIFICACION;
+
+    public Date getREGISTRO() {
+        return REGISTRO;
+    }
+
+    public void setREGISTRO(Date REGISTRO) {
+        this.REGISTRO = REGISTRO;
+    }
+
+    public Date getMODIFICACION() {
+        return MODIFICACION;
+    }
+
+    public void setMODIFICACION(Date MODIFICACION) {
+        this.MODIFICACION = MODIFICACION;
+    }
+
+    public String getDETALLE() {
+        return DETALLE;
+    }
+
+    public void setDETALLE(String DETALLE) {
+        this.DETALLE = DETALLE;
+    }
 
     public Integer getID_USUARIO() {
         return ID_USUARIO;
@@ -58,8 +79,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "ID_USUARIO=" + ID_USUARIO + ", USUARIO=" + USUARIO + ", CLAVE=" + CLAVE + ", ESTADO=" + ESTADO + ", IMAGEN=" + IMAGEN + '}';
+        return "Usuario{" + "ID_USUARIO=" + ID_USUARIO + ", USUARIO=" + USUARIO + ", CLAVE=" + CLAVE + ", ESTADO=" + ESTADO + ", IMAGEN=" + IMAGEN + ", DETALLE=" + DETALLE + ", REGISTRO=" + REGISTRO + ", MODIFICACION=" + MODIFICACION + '}';
     }
-    
     
 }

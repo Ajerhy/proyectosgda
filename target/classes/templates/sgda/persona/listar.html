@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="base/tabla::head">
+	<meta charset="UTF-8"/>
+    </head>
+    
+    <body class="hold-transition sidebar-mini">
+        <div class="wrapper">
+            
+            <!--th:insert-->
+            <!--div th:replace="base/dashboard :: navbar"></div-->
+            <nav th:replace="base/navbar :: navbar"></nav>
+            <!--aside th:replace="base/dashboard :: sidebar"></aside-->
+            <aside th:replace="base/sidebar :: sidebar"></aside>
+            
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                
+                <!-- Barra -->
+                <section class="content-header">
+                      <div class="container-fluid">
+                        <div class="row mb-2">
+                          <div class="col-sm-6">
+                              
+                            <h5 class="m-0 text-dark">Listar Personas &nbsp;
+                                <a class="btn btn-success" href="/persona/crear">
+                                    <i class="fas fa-plus"></i> Agregar</a>
+                            </h5>
+                            
+                            
+                          </div>
+                          <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                              <li class="breadcrumb-item active">Persona</li>
+                            </ol>
+                          </div>
+                        </div>
+                      </div>
+                </section>
+                <!-- End Barra -->
+                
+               <!-- Main content -->
+                <section class="content">
+                <div class="row">
+                    <div class="col-12">
+                        
+                        <div class="card">
+                            <!-- .card-header -->
+                            <div class="card-header">
+                                <!--h3 class="card-title">Listar Usuario SGDA APP</h3-->
+                            </div>
+                            <!-- /.card-header -->
+
+                            <!-- card-body -->
+                            <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nombre</th>
+                                        <th>Apellido Paterno</th>
+                                        <th>Apellido Materno</th>
+                                        <th>Ci</th>
+                                        <th>Nacimiento</th>
+                                        <th>Sexo</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:if="${personas.empty}">
+                                        <td colspan="3">No Hay Personas</td>
+                                    </tr>
+                                    <tr th:each="persona : ${personas}">
+                                        <td th:text="${persona.ID_PERSONA}"></td>
+                                        <td th:text="${persona.NOMBRE}"></td>
+                                        <td th:text="${persona.PATERNO}"></td>
+                                        <td th:text="${persona.MATERNO}"></td>
+                                        <td th:text="${persona.CI}"></td>
+                                        <td th:text="${persona.NACIMIENTO}"></td>
+                                        <td class="text-center">
+                                            <span th:if="${persona.SEXO==true}" class="badge badge-success">Hombre</span>
+                                            <span th:unless="${persona.SEXO==true}" class="badge badge-danger">Mujer</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <span th:if="${persona.ESTADO==true}" class="badge badge-success">Activo</span>
+                                            <span th:unless="${persona.ESTADO==true}" class="badge badge-danger">Inactivo</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-info dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false">
+                                                    Opciones
+                                                    <span class="caret"></span>
+                                                    <span class="sr-only">Toggle Dropdown</span>
+                                                </button>
+                                                <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(68px, 38px, 0px);">
+                                                    
+                                                    <a class="dropdown-item" th:href="@{/persona/detalle/{ID} (ID=${persona.ID_PERSONA}) }">
+                                                        <i class="glyphicon glyphicon-eye-close"></i> 
+                                                        Ver detalle 
+                                                    </a>
+                                                    <a class="dropdown-item" th:href="@{/persona/detalles(ID=${persona.ID_PERSONA}) }">
+                                                        <i class="glyphicon glyphicon-eye-open"></i> 
+                                                        Ver detalles 1
+                                                    </a>
+                                                    
+                                                    <a class="dropdown-item" th:href="@{/persona/eliminar(ID=${persona.ID_PERSONA}) }" data-toggle="tooltip" data-placement="left" title="Eliminar">
+                                                        <i class="glyphicon glyphicon-trash"></i> 
+                                                        Eliminar
+                                                    </a>
+                                                    
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">Separados Link</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                            <!-- /.card-body -->
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+                </section>
+                <!-- /. Main content -->
+                
+            </div>
+            
+            <!--footer th:replace="base/tabla :: footer"></footer-->
+            <footer th:insert="base/footer :: footer" class="main-footer"></footer>
+            <aside th:replace="base/tabla :: barra_lateral"></aside>
+            
+        </div>
+        
+        <div th:replace="base/tabla :: js"></div>
+        
+    </body>
+</html>

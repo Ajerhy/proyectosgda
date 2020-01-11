@@ -1,1 +1,7 @@
+net\sgda\controlador\LoginControlador.class
+net\sgda\modelo\Usuario.class
+net\sgda\servicio\IUsuarioServicio.class
 net\sgda\ProyectosgdaApplication.class
+net\sgda\servicio\UsuarioServicioImpl.class
+net\sgda\controlador\UsuarioControlador.class
+net\sgda\controlador\HomeController.class
