@@ -43,12 +43,67 @@ public class PersonaServicioImpl implements IPersonaServicio{
          persona3.setMATERNO("Nakashima");
          persona3.setCI(12345);
          persona3.setSEXO(false);
-         persona3.setNACIMIENTO(dma.parse("01/01/2010"));
+         persona3.setNACIMIENTO(dma.parse("01/01/2015"));
          persona3.setESTADO(true);
+        
+         Persona persona4 = new Persona();
+         persona4.setID_PERSONA(4);
+         persona4.setNOMBRE("Fenifer");
+         persona4.setPATERNO("Flores");
+         persona4.setMATERNO("Nakashima");
+         persona4.setCI(12345);
+         persona4.setSEXO(false);
+         persona4.setNACIMIENTO(dma.parse("01/01/2010"));
+         persona4.setESTADO(true);
+         
+         Persona persona5 = new Persona();
+         persona5.setID_PERSONA(5);
+         persona5.setNOMBRE("Fenifer");
+         persona5.setPATERNO("Flores");
+         persona5.setMATERNO("Nakashima");
+         persona5.setCI(12345);
+         persona5.setSEXO(true);
+         persona5.setNACIMIENTO(dma.parse("01/01/2005"));
+         persona5.setESTADO(false);
+         
+         Persona persona6 = new Persona();
+         persona6.setID_PERSONA(6);
+         persona6.setNOMBRE("Fenifer");
+         persona6.setPATERNO("Flores");
+         persona6.setMATERNO("Nakashima");
+         persona6.setCI(12345);
+         persona6.setSEXO(false);
+         persona6.setNACIMIENTO(dma.parse("01/01/2000"));
+         persona6.setESTADO(true);
+         
+         Persona persona7 = new Persona();
+         persona7.setID_PERSONA(7);
+         persona7.setNOMBRE("Fenifer");
+         persona7.setPATERNO("Flores");
+         persona7.setMATERNO("Nakashima");
+         persona7.setCI(12345);
+         persona7.setSEXO(false);
+         persona7.setNACIMIENTO(dma.parse("01/01/1995"));
+         persona7.setESTADO(false);
+         
+         Persona persona8 = new Persona();
+         persona8.setID_PERSONA(8);
+         persona8.setNOMBRE("Fenifer");
+         persona8.setPATERNO("Flores");
+         persona8.setMATERNO("Nakashima");
+         persona8.setCI(12345);
+         persona8.setSEXO(true);
+         persona8.setNACIMIENTO(dma.parse("01/01/1990"));
+         persona8.setESTADO(true);
          
          lista.add(persona1);
          lista.add(persona2);
          lista.add(persona3);
+         lista.add(persona4);
+         lista.add(persona5);
+         lista.add(persona6);
+         lista.add(persona7);
+         lista.add(persona8);
 
         } catch (Exception e) {
             System.out.println("Error:"+ e.getMessage());

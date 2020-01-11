@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -42,12 +44,20 @@ public class PersonaControlador {
     }
     
     @PostMapping("/guardar")   
-    public String GuardarPersona(Persona persona,Model model){
+    public String GuardarPersona(Persona persona,BindingResult result,Model model){
+        model.addAttribute("titulo","Listar Persona");
+        
+        if(result.hasErrors()){
+            for(ObjectError error: result.getAllErrors()){
+                System.out.println("Ocurrio Un Error:"+error.getDefaultMessage());
+            }
+            return "sgda/persona/crear";
+        }
         //Configurar de String a Date
         servicioPersona.guardar(persona);
-        model.addAttribute("titulo","Listar Persona");
         System.out.println("Usuarios:"+persona);
-        return "sgda/usuario/listar";
+        return "sgda/persona/listpersona";
+        //return "sgda/usuario/listar";
     }
     
     @GetMapping("/detalle/{id}")

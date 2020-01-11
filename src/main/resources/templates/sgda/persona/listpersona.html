@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="base/tabla::head">
+	<meta charset="UTF-8"/>
+    </head>
+    
+    <body class="hold-transition sidebar-mini">
+        
+        <div class="wrapper">
+            
+            <!--th:insert-->
+            <!--div th:replace="base/dashboard :: navbar"></div-->
+            <nav th:replace="base/navbar :: navbar"></nav>
+            <!--aside th:replace="base/dashboard :: sidebar"></aside-->
+            <aside th:replace="base/sidebar :: sidebar"></aside>
+            
+            <div class="content-wrapper">
+                
+                Lista de Personas
+                <!--h3 th:text="${usuario.ID_USUARIO}"></h3>
+                <h3 th:text="${usuario.USUARIO}"></h3>
+                <h3 th:text="${usuario.CLAVE}"></h3-->
+            
+            </div>
+            
+            <aside th:replace="base/dashboard :: barra_lateral"></aside>
+            <footer th:insert="base/footer :: footer" class="main-footer"></footer>
+            <!--footer th:replace="base/dashboard :: footer"></footer-->
+            
+        </div>
+        
+        <div th:replace="base/dashboard :: js"></div>
+        
+    </body>
+</html>

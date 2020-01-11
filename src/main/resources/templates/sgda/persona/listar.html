@@ -54,70 +54,76 @@
 
                             <!-- card-body -->
                             <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nombre</th>
-                                        <th>Apellido Paterno</th>
-                                        <th>Apellido Materno</th>
-                                        <th>Ci</th>
-                                        <th>Nacimiento</th>
-                                        <th>Sexo</th>
-                                        <th>Estado</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr th:if="${personas.empty}">
-                                        <td colspan="3">No Hay Personas</td>
-                                    </tr>
-                                    <tr th:each="persona : ${personas}">
-                                        <td th:text="${persona.ID_PERSONA}"></td>
-                                        <td th:text="${persona.NOMBRE}"></td>
-                                        <td th:text="${persona.PATERNO}"></td>
-                                        <td th:text="${persona.MATERNO}"></td>
-                                        <td th:text="${persona.CI}"></td>
-                                        <td th:text="${persona.NACIMIENTO}"></td>
-                                        <td class="text-center">
-                                            <span th:if="${persona.SEXO==true}" class="badge badge-success">Hombre</span>
-                                            <span th:unless="${persona.SEXO==true}" class="badge badge-danger">Mujer</span>
-                                        </td>
-                                        <td class="text-center">
-                                            <span th:if="${persona.ESTADO==true}" class="badge badge-success">Activo</span>
-                                            <span th:unless="${persona.ESTADO==true}" class="badge badge-danger">Inactivo</span>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-info dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false">
-                                                    Opciones
-                                                    <span class="caret"></span>
-                                                    <span class="sr-only">Toggle Dropdown</span>
-                                                </button>
-                                                <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(68px, 38px, 0px);">
-                                                    
-                                                    <a class="dropdown-item" th:href="@{/persona/detalle/{ID} (ID=${persona.ID_PERSONA}) }">
-                                                        <i class="glyphicon glyphicon-eye-close"></i> 
-                                                        Ver detalle 
-                                                    </a>
-                                                    <a class="dropdown-item" th:href="@{/persona/detalles(ID=${persona.ID_PERSONA}) }">
-                                                        <i class="glyphicon glyphicon-eye-open"></i> 
-                                                        Ver detalles 1
-                                                    </a>
-                                                    
-                                                    <a class="dropdown-item" th:href="@{/persona/eliminar(ID=${persona.ID_PERSONA}) }" data-toggle="tooltip" data-placement="left" title="Eliminar">
-                                                        <i class="glyphicon glyphicon-trash"></i> 
-                                                        Eliminar
-                                                    </a>
-                                                    
-                                                    <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" href="#">Separados Link</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                <!--div class="card-body table-responsive p-0" style="height: 300px;">
+                                    <table id="example1" class="table table-head-fixed"-->
+                                <div class="table-responsive">
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Nombre</th>
+                                                <th>Apellido Paterno</th>
+                                                <th>Apellido Materno</th>
+                                                <th>Ci</th>
+                                                <th>Nacimiento</th>
+                                                <th>Sexo</th>
+                                                <th>Estado</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:if="${personas.empty}">
+                                                <td colspan="3">No Hay Personas</td>
+                                            </tr>
+                                            <tr th:each="persona : ${personas}">
+                                                <td th:text="${persona.ID_PERSONA}"></td>
+                                                <td th:text="${persona.NOMBRE}"></td>
+                                                <td th:text="${persona.PATERNO}"></td>
+                                                <td th:text="${persona.MATERNO}"></td>
+                                                <td th:text="${persona.CI}"></td>
+                                                <td th:text="${persona.NACIMIENTO}"></td>
+                                                <!--td><p th:text="${#temporals.day(localDate)}"></p></td-->
+
+                                                <td class="text-center">
+                                                    <span th:if="${persona.SEXO==true}" class="badge badge-success">Hombre</span>
+                                                    <span th:unless="${persona.SEXO==true}" class="badge badge-danger">Mujer</span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span th:if="${persona.ESTADO==true}" class="badge badge-success">Activo</span>
+                                                    <span th:unless="${persona.ESTADO==true}" class="badge badge-danger">Inactivo</span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-info dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false">
+                                                            Opciones
+                                                            <span class="caret"></span>
+                                                            <span class="sr-only">Toggle Dropdown</span>
+                                                        </button>
+                                                        <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(68px, 38px, 0px);">
+
+                                                            <a class="dropdown-item" th:href="@{/persona/detalle/{ID} (ID=${persona.ID_PERSONA}) }">
+                                                                <i class="glyphicon glyphicon-eye-close"></i> 
+                                                                Ver detalle 
+                                                            </a>
+                                                            <a class="dropdown-item" th:href="@{/persona/detalles(ID=${persona.ID_PERSONA}) }">
+                                                                <i class="glyphicon glyphicon-eye-open"></i> 
+                                                                Ver detalles 1
+                                                            </a>
+
+                                                            <a class="dropdown-item" th:href="@{/persona/eliminar(ID=${persona.ID_PERSONA}) }" data-toggle="tooltip" data-placement="left" title="Eliminar">
+                                                                <i class="glyphicon glyphicon-trash"></i> 
+                                                                Eliminar
+                                                            </a>
+
+                                                            <div class="dropdown-divider"></div>
+                                                            <a class="dropdown-item" href="#">Separados Link</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <!-- /.card-body -->
                             

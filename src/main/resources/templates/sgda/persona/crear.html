@@ -16,9 +16,121 @@
             
             <div class="content-wrapper">
                 
-                <!--h3 th:text="${usuario.ID_USUARIO}"></h3-->
-                <h3 th:text="${usuario.USUARIO}"></h3>
-                <h3 th:text="${usuario.CLAVE}"></h3>
+                <!-- Barra -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+
+                                <h5 class="m-0 text-dark">Crear Personas &nbsp;
+
+                                </h5>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                    <li class="breadcrumb-item active">Persona</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Barra -->
+                
+                <!-- Contenido -->
+                <section class="content">
+                    <form th:action="@{/persona/guardar}" role="form" method="POST">
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 mb-12">
+
+                                <div class="card card-default">
+                                    
+                                    <div class="card-header">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Formulario Persona
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-3">
+                                                <!--div class="dropdown-divider"></div-->
+
+                                                <div class="row">
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="id_nombre">Nombre:</label>
+                                                            <input type="text" name="NOMBRE" placeholder="Nombre" maxlength="50" class="form-control" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="id_paterno">Apellido Paterno:</label>
+                                                            <input type="text" name="PATERNO" placeholder="Apellido Paterno" maxlength="50" class="form-control" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="id_materno">Apellido Materno:</label>
+                                                            <input type="text" name="MATERNO" placeholder="Apellido Materno" maxlength="50" class="form-control" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="id_ci">Numero CI:</label>
+                                                            <input type="text" name="CI" placeholder="Numero Cedula de Identidad" maxlength="50" class="form-control"  required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="id_nacimiento">Fecha de Nacimiento</label>
+                                                            <input type="date" name="NACIMIENTO" placeholder="Fecha de Nacimiento" class="form-control" id="NACIMIENTO">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="id_sexo">Sexo</label>
+                                                            <div class="form-check">
+                                                                <!--label class="form-check-label" for="destacado0"></label><br-->
+                                                                <input class="form-check-input" type="radio" name="SEXO" id="estado" value="1" checked="checked">
+                                                                <label class="form-check-label" for="destacado1">Hombre</label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="SEXO" id="estado" value="0">
+                                                                <label class="form-check-label" for="destacado2">Mujer</label>
+                                                            </div>
+                                                            <!--th:field="*{destacado}"-->
+                                                            <!--input type="checkbox" name="ESTADO" value="1" class="form-control" /-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Botones -->
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-danger"><span class="fa fa-save"></span> Guardar</button>
+                                        <button type="reset" class="btn btn-success"><i class="far fa-hand-point-left"></i> Cancelar</button>
+                                    </div>
+                                    <!-- Fin Botones -->
+
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </form>
+                </section>
+                <!-- End Contenido -->
+                
+                
+                
+                
             
             </div>
             
