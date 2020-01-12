@@ -60,20 +60,29 @@ public class UsuarioControlador {
         //return "sgda/usuario/listar";
     }
     
-    @InitBinder
-    public void initBinder(WebDataBinder webDataBinder){
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat,false));
+    
+    
+    
+    //*/Lockscreen
+    @GetMapping("/perfil")
+    public String PerfilUsuario(Model model){
+        model.addAttribute("titulo","Perfil Usuario");
+        model.addAttribute("link","/perfil");
+        return "sgda/usuario/perfil";
     }
+    
+    
+    
+    
+    
+    
+    
     
     //@GetMapping("usuario/guardar")
     @RequestMapping(value = "/guardar1", method=RequestMethod.POST)
     //public String GuardarUsuario(){
     public String GuardarUsuario1(
-            @RequestParam("USUARIO") String Usuario,
-            @RequestParam("CLAVE") String Clave,
-            @RequestParam("ESTADO") boolean Estado,
-            Model model){
+            @RequestParam("USUARIO") String Usuario,@RequestParam("CLAVE") String Clave,@RequestParam("ESTADO") boolean Estado,Model model){
         
         model.addAttribute("titulo","Listar Usuario");
         System.out.println("Usuario:"+Usuario+"/n Password:"+Clave+"/n Estado:"+Estado);
@@ -131,69 +140,12 @@ public class UsuarioControlador {
         usuarios.setCLAVE("Color");
         model.addAttribute("usuarios",usuarios);
         
-        
-        /*
-        List<String> lista = new LinkedList<String>();
-        lista.add("Ingeniero de Sistemas");
-        lista.add("Auxiliar de Contabilidad");
-        lista.add("Vendenro");
-        lista.add("Arquitecto");
-        model.addAttribute("empleos", lista);
-        */
-        
         return "sgda/usuario/prueba";
     }
     
-    /*
-    private List<Usuario> getUsuarios(){
-        List<Usuario> lista = new LinkedList<Usuario>();
-        
-        try {
-         Usuario usuario1 = new Usuario();
-         usuario1.setID_USUARIO(1);
-         usuario1.setUSUARIO("ajerhy");
-         usuario1.setCLAVE("alvarado 123");
-         usuario1.setESTADO(true);
-         usuario1.setIMAGEN("avatar1.png");
-         
-         Usuario usuario2 = new Usuario();
-         usuario2.setID_USUARIO(2);
-         usuario2.setUSUARIO("feliciano");
-         usuario2.setCLAVE("pessoa 123");
-         usuario2.setESTADO(false);
-         
-         Usuario usuario3 = new Usuario();
-         usuario3.setID_USUARIO(3);
-         usuario3.setUSUARIO("alejandro");
-         usuario3.setCLAVE("abrego 123");
-         usuario3.setESTADO(true);
-         usuario3.setIMAGEN("avatar3.png");
-         
-         Usuario usuario4 = new Usuario();
-         usuario4.setID_USUARIO(4);
-         usuario4.setUSUARIO("alfresco");
-         usuario4.setCLAVE("arce 123");
-         usuario4.setESTADO(true);
-         usuario4.setIMAGEN("avatar4.png");
-         
-         Usuario usuario5 = new Usuario();
-         usuario5.setID_USUARIO(5);
-         usuario5.setUSUARIO("gustavo");
-         usuario5.setCLAVE("soto 123");
-         usuario5.setESTADO(false);
-         usuario5.setIMAGEN("avatar5.png");
-         
-         lista.add(usuario1);
-         lista.add(usuario2);
-         lista.add(usuario3);
-         lista.add(usuario4);
-         lista.add(usuario5);
-
-         
-        } catch (Exception e) {
-            System.out.println("Error:"+ e.getMessage());
-        }
-        return lista;
+    @InitBinder
+    public void initBinder(WebDataBinder webDataBinder){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        webDataBinder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat,false));
     }
-    */
 }

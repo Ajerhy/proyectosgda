@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="base/tabla::head">
+    <head th:replace="base/dashboard::head">
 	<meta charset="UTF-8"/>
     </head>
     
@@ -117,55 +117,6 @@
 
                                     </div>
 
-                                </div>
-                            </div>
-                        </form>
-                    </section>
-                    <!-- End Contenido -->
-                    
-                    
-                    
-                    <!-- Contenido -->
-                    <section class="content">
-                        <form th:action="@{/usuario/guardar}" method="POST">
-                            <div class="col-xl-12 col-md-12 mb-12">
-                                <div class="card border-left-success shadow h-100 py-2">
-                                    <div class="card-body">
-
-                                        <div class="row no-gutters align-items-center">
-                                            <div class="col mr-2">
-                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                    Formulario Usuario
-                                                </div>
-
-                                                <div class="dropdown-divider"></div>
-
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        
-                                                        
-                                                        
-                                                        
-                                                        
-                                                        <div class="col-2">
-                                                        
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Botones -->
-                                        <div class="dropdown-divider"></div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <button type="submit" class="btn btn-danger"><span class="fa fa-save"></span> Guardar</button>
-                                                <button type="reset" class="btn btn-success"><i class="far fa-hand-point-left"></i> Cancelar</button>
-                                            </div>
-                                        </div>
-                                        <!-- Fin Botones -->
-
-                                    </div>
                                 </div>
                             </div>
                         </form>

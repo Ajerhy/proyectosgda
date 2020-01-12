@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="base/tabla::head">
-	<meta charset="UTF-8"/>
+    <!--head th:replace="base/tabla::head"-->
+    <head th:replace="base/dashboard :: head">
+        <meta charset="UTF-8"/>
     </head>
     
     <body class="hold-transition sidebar-mini">
@@ -88,7 +89,8 @@
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
                                                             <label for="id_nacimiento">Fecha de Nacimiento</label>
-                                                            <input type="date" name="NACIMIENTO" placeholder="Fecha de Nacimiento" class="form-control" id="NACIMIENTO">
+                                                            <input type="text" name="NACIMIENTO" placeholder="Fecha de Nacimiento" class="form-control" id="NACIMIENTO">
+                                                            <!--input type="date" name="NACIMIENTO" placeholder="Fecha de Nacimiento" class="form-control" id="NACIMIENTO"-->
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-4">
@@ -139,8 +141,18 @@
             <!--footer th:replace="base/dashboard :: footer"></footer-->
             
         </div>
-        
-        <div th:replace="base/dashboard :: js"></div>
-        
+        <!--div th:insert="base/dashboard :: js"-->
+        <div th:include="base/dashboard :: js">
+        </div>
+        <script>
+        $(function () {
+            $("#NACIMIENTO").datepicker({
+                language: 'es',
+                /*format: 'yyyy-mm-dd',*/
+                format: 'dd-mm-yyyy',
+            });
+        });
+        </script>
+       
     </body>
 </html>
