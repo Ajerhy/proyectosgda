@@ -12,6 +12,7 @@
             <nav th:replace="base/navbar :: navbar"></nav>
             <!--aside th:replace="base/dashboard :: sidebar"></aside-->
             <aside th:replace="base/sidebar :: sidebar"></aside>
+            <!--div th:include="mytemplate :: div.content">...</div-->
             
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
@@ -81,9 +82,8 @@
                                                 <td th:text="${persona.PATERNO}"></td>
                                                 <td th:text="${persona.MATERNO}"></td>
                                                 <td th:text="${persona.CI}"></td>
-                                                <td th:text="${persona.NACIMIENTO}"></td>
-                                                <!--td><p th:text="${#temporals.day(localDate)}"></p></td-->
-
+                                                <td th:text="${#dates.format(persona.NACIMIENTO, 'dd/MM/yyyy')}"></td>
+                                                <!--td th:text="${persona.NACIMIENTO}"></td-->
                                                 <td class="text-center">
                                                     <span th:if="${persona.SEXO==true}" class="badge badge-success">Hombre</span>
                                                     <span th:unless="${persona.SEXO==true}" class="badge badge-danger">Mujer</span>
