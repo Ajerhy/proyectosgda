@@ -36,5 +36,12 @@ public class LoginControlador {
         return "sgda/login/bloqueo";
     }    
     
+    //*/Lockscreen
+    @GetMapping("/modal")
+    public String Modal(Model model){
+        model.addAttribute("titulo","Modal");
+        model.addAttribute("link","/modal");
+        return "sgda/dashboard/modal";
+    }
     
 }
