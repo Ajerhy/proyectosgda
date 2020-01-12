@@ -1,171 +1,160 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    
+
     <head th:replace="base/index :: head">
-	<meta charset="UTF-8"/>
+        <meta charset="UTF-8"/>
     </head>
-    
+
     <body class="hold-transition login-page">    
         <div class="wrapper">
-      <div class="login-box">
-          <div class="login-logo">
-              <img th:src="@{/favicon.ico}"
-                   alt="PyERP"
-                   style="opacity: .8; margin-left: 12px;" height="30px" >
-              <a th:href="${link}"><b>Da</b>SgeDA</a>
-          </div>
-                   
-        <!-- /.login-logo -->
-        
-        <div class="card">
-            <div class="card-body login-card-body">
-      <p class="login-box-msg">Iniciar Sessión</p>
-      <form action="" method="POST">
-      <!--form action="/erp/auth" method="post"-->
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" name="email" placeholder="admin">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" name="password" class="form-control" placeholder="x1234567890">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-success btn-block btn-flat">Entrar</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
-      
-      <!--
-      <div class="social-auth-links text-center mb-3">
-        <p>- OR -</p>
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-        </a>
-      </div>
-      -->
-      <!-- /.social-auth-links -->
-      
-      <p class="mb-1">
-        <a href="/dashboard">Olvidé la contraseña</a>
-      </p>
-      <p class="mb-0">
-        <a href="/" class="text-center">Registrarse</a>
-      </p>
-      
-      
-    </div>
-        </div>
-      </div>
-        
-    <footer class="main-footer">
-        
-        <div class="container-fluid">
-                 
-            <div class="row">
-            
-            <div class="col-md-1 col-sm-1">
-                <center>
-                    <a href="https://getbootstrap.com/" data-toggle='tooltip' data-placement='top' title="Bootstrap" target="_blank">
-                        <!--img th:src="@{/img/code/A1.png}" border="0" class="img-rounded" class="img-responsive" alt="Bootstrap" width="50" height="20"-->
-                        <img th:src="@{/img/code/A1.png}" class="img-responsive" alt="Bootstrap" width="50" height="20"/>
-                    </a>
-                    <br>
-                </center>
-            </div>
 
-            <div class="col-md-1 col-sm-1">
-                <center> 
-                    <a href="https://spring.io/" data-toggle='tooltip' data-placement='top' title="Spring" target="_blank">
-                        <!--img th:src="@{/img/code/A2.png}" border="0" class="img-rounded"  class="img-responsive" alt="Spring" width="50" height="20"-->
-                        <img th:src="@{/img/code/A2.png}" class="img-responsive" alt="Spring" width="50" height="20"/>
-                    </a>
-                    <br>
-                </center>
-            </div>
+            <div class="login-box">
+                <div class="login-logo">
+                    <img th:src="@{/favicon.ico}"
+                         alt="PyERP"
+                         style="opacity: .8; margin-left: 12px;" height="30px" >
+                    <a th:href="${link}"><b>Da</b>SgeDA</a>
+                </div>
+                <!-- From -->
+                <div class="card">
+                    <div class="card-body login-card-body">
+                        <p class="login-box-msg">Iniciar Sessión</p>
+                        <form action="" method="POST">
+                            <div class="input-group mb-3">
+                                <input type="text" name="usuario" class="form-control" placeholder="usuario">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-user"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="password" name="password" class="form-control" placeholder="password">
+                                <div class="input-group-append">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-lock"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 offset-md-3 center">
+                                    <button type="submit" class="btn btn-success btn-block btn-flat">
+                                        <i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i> Entrar
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
 
-            <div class="col-md-1 col-sm-1">
-                <center> 
-                    <a href="http://tomcat.apache.org/" data-toggle='tooltip' data-placement='top' title="Apache Tomcat" target="_blank">
-                        <!--img th:src="@{/img/code/A3.png}" border="0" class="img-responsive" alt="Apache Tomcat" width="50" height="20"-->
-                        <img th:src="@{/img/code/A3.png}" class="img-responsive" alt="Apache Tomcat" width="50" height="20"/>
-                    </a>
-                    <br>
-                </center>
-            </div>
-            
-            
-            <!--div class="col-md-1 col-sm-1">
-                <center> 
-                    <a href="http://www.oracle.com/technetwork/middleware/glassfish/overview/index.html" data-toggle='tooltip' data-placement='top' title="GlassFish Server" target="_blank">
-                        <img th:src="@{/img/code/A4.png}" border="0" class="img-rounded"  class="img-responsive" alt="GlassFish Server" width="30" height="20">
-                        <img th:src="@{/img/code/A4.png}" class="img-responsive" alt="GlassFish Server" width="50" height="20"/>
-                    </a>
-                    <br>
-                </center>
-            </div-->
+                        <!--
+                        <div class="social-auth-links text-center mb-3">
+                          <p>- OR -</p>
+                          <a href="#" class="btn btn-block btn-primary">
+                            <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+                          </a>
+                          <a href="#" class="btn btn-block btn-danger">
+                            <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+                          </a>
+                        </div>
+                        -->
+                        <!-- /.social-auth-links -->
 
-            <div class="col-md-1 col-sm-1">
-                <center> 
-                    <a href="http://www.postgresql.org/" data-toggle='tooltip' data-placement='top' title="PostgreSQL" target="_blank">
-                        <!--img th:src="@{/img/code/A5.png}" border="0" class="img-rounded"  class="img-responsive" alt="postgres" width="60" height="25"-->
-                        <img th:src="@{/img/code/A5.png}" class="img-responsive" alt="Postgresql" width="50" height="20"/>
-                    </a>
-                </center>
-            </div>
-
-            <div class="col-md-1 col-sm-1">
-                <center> 
-                    <a href="https://www.w3.org/html/logo/" data-toggle='tooltip' data-placement='top' title="HTML5" target="_blank">
-                        <!--img th:src="@{/img/code/A6.png}" border="0" class="img-rounded"  class="img-responsive" alt="html5" width="25" height="25"-->
-                        <img th:src="@{/img/code/A6.png}" class="img-responsive rounded" alt="Html5" width="20" height="20"/>
-                    </a>
-                </center>
-            </div>        
-
-            <!--div class="col-md-1 col-sm-1">
-                <center> 
-                    <a href="http://hibernate.org/" data-toggle='tooltip' data-placement='top' title="Hibernate" target="_blank">
-                        <img th:src="@{/img/code/A7.png}" border="0" class="img-rounded"  class="img-responsive" alt="hibernate" width="70" height="20"/>
-                    </a>
-                </center>
-            </div-->
-              
-            </div>
-            
-                    <div class="pull-right">
-                        <strong>Copyright &copy; 2017-2020</strong>
-                        <b>Version</b> 1.0.0
+                        <p class="mb-1">
+                            <a href="/dashboard">Olvidé la contraseña</a>
+                        </p>
+                        <p class="mb-0">
+                            <a href="/" class="text-center">Registrarse</a>
+                        </p>
                     </div>
+                </div>
+                <!-- End From -->
+            </div>
+            
+            <!-- Footer -->
+            <footer class="page-footer font-small special-color-dark pt-2">
+
+                <!-- Footer Elements -->
+                <div class="container">
+
+                    <!-- Social buttons -->
+                    <ul class="list-unstyled list-inline text-center">
+                        
+                        <li class="list-inline-item">
+                            <a href="https://getbootstrap.com/" data-toggle='tooltip' data-placement='top' title="Bootstrap" class="btn-floating btn-fb mx-1">
+                                <!--i class="fab fa-facebook-f"> </i-->
+                                <img th:src="@{/img/code/A1.png}" class="img-responsive" alt="Bootstrap" width="50" height="20"/>
+                            </a>
+                        </li>
+                        
+                        <li class="list-inline-item">
+                            <a href="https://spring.io/" data-toggle='tooltip' data-placement='top' title="Spring" class="btn-floating btn-tw mx-1">
+                                <!--i class="fab fa-twitter"> </i-->
+                                <img th:src="@{/img/code/A2.png}" class="img-responsive" alt="Spring" width="50" height="20"/>
+                            </a>
+                        </li>
+                        
+                        <li class="list-inline-item">
+                            <a href="http://tomcat.apache.org/" data-toggle='tooltip' data-placement='top' title="Apache Tomcat" class="btn-floating btn-gplus mx-1">
+                                <!--i class="fab fa-google-plus-g"> </i-->
+                                <img th:src="@{/img/code/A3.png}" class="img-responsive" alt="Apache Tomcat" width="50" height="20"/>
+                            </a>
+                        </li>
+                        
+                        <!--li class="list-inline-item">
+                            <a href="http://www.oracle.com/technetwork/middleware/glassfish/overview/index.html" data-toggle='tooltip' data-placement='top' title="GlassFish Server" class="btn-floating btn-li mx-1">
+                                <-i class="fab fa-linkedin-in"> </i->
+                                <img th:src="@{/img/code/A4.png}" class="img-responsive" alt="GlassFish Server" width="50" height="20"/>
+                            </a>
+                        </li-->
+                        
+                        <li class="list-inline-item">
+                            <a href="http://www.postgresql.org/" data-toggle='tooltip' data-placement='top' title="PostgreSQL" class="btn-floating btn-dribbble mx-1">
+                                <!--i class="fab fa-dribbble"> </i-->
+                                <img th:src="@{/img/code/A5.png}" class="img-responsive" alt="Postgresql" width="50" height="20"/>
+                            </a>
+                        </li>
+                        
+                        <li class="list-inline-item">
+                            <a href="https://www.w3.org/html/logo/" data-toggle='tooltip' data-placement='top' title="HTML5" class="btn-floating btn-fb mx-1">
+                                <!--i class="fab fa-facebook-f"> </i-->
+                                <img th:src="@{/img/code/A6.png}" class="img-responsive rounded" alt="Html5" width="20" height="20"/>
+                            </a>
+                        </li>
+                        
+                        <!--li class="list-inline-item">
+                            <a href="http://hibernate.org/" data-toggle='tooltip' data-placement='top' title="Hibernate" class="btn-floating btn-tw mx-1">
+                                <-i class="fab fa-twitter"> </i->
+                                <img th:src="@{/img/code/A7.png}" class="img-responsive" alt="hibernate" width="70" height="20"/>
+                            </a>
+                        </li-->
+                        
+                    </ul>
+                    <!-- Social buttons -->
+
+                </div>
+                <!-- Footer Elements -->
+
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-1">
+                    © Copyright &copy; 2017-2020
+                    <b>Version</b> 1.0.0
+                </div>
+                <!-- Copyright -->
+
+            </footer>
+            <!-- Footer -->
+            
+            
+            
         </div>
-    </footer>
-        
-        
-        
-        </div>
-        
-    <footer th:replace="base/index :: footer"></footer>    
-        
-      <!-- Js
-      <!-- jQuery
-      <script type="text/javascript" th:src="@{/plugins/jquery/jquery.min.js}"></script>
-      <!-- Bootstrap 4
-      <script type="text/javascript" th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
-      -->
+
+        <div th:replace="base/index :: js"></div>    
+
+        <!-- Js
+        <!-- jQuery
+        <script type="text/javascript" th:src="@{/plugins/jquery/jquery.min.js}"></script>
+        <!-- Bootstrap 4
+        <script type="text/javascript" th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+        -->
     </body>
-    
+
 </html>
