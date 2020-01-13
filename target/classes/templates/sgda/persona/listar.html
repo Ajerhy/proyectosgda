@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
     <head th:replace="base/tabla::head">
 	<meta charset="UTF-8"/>
     </head>
@@ -26,8 +26,35 @@
                             <h5 class="m-0 text-dark">Listar Personas &nbsp;
                                 <a class="btn btn-success" href="/persona/crear">
                                     <i class="fas fa-plus"></i> Agregar</a>
+                                    &nbsp;
+                                    <!--
+                                    <a th:href="@{/persona/modalpersona}">Add</a>
+                                   <a href="/persona/modalpersona">Add1</a>
+                                   -->
+                                    <a th:data-url="@{/persona/modalpersona}" th:onclick="window.location.href=this.getAttribute('data-url')">Add2</a>
+                                    &nbsp;
+                                    <!--
+                                    <a th:attr="" th:attr="onclick = ${ 'modalRemover(' + cliente.id + ')' }"></a>
+                                    -->
+                                    
+                                    <a class="btn btn-success" onclick="return abrir_modal('+/dashboard+')" href="#">
+                                    <span class="glyphicon glyphicon-plus"></span> Agregar 1</a>
+                                    &nbsp;
+                                    <a class="btn btn-success" onclick="return abrir_modal('/cooperativa/crear/moneda/')" href="#">
+                                        <span class="glyphicon glyphicon-plus"></span> Agregar 2</a>
+                                    &nbsp;
+                                    
+                                    <a class="btn btn-success"  th:data-url="@{/persona/modalpersona}" onclick="return abrir_modal('data-url');" href="#">
+                                        <span class="glyphicon glyphicon-plus"></span> Agregar 3</a>
+                              <!--
+                                    &nbsp;
+                                    <a class="btn btn-success"  th:data-url="@{/persona/modalpersona}" th:onclick="'abrir_modal('data-url')'" href="#">
+                                        <span class="glyphicon glyphicon-plus"></span> Agregar 4</a>
+                                        
+                                        
+                                        <button id="open" type="button" th:data-url="@{/persona/modalpersona}" th:onclick="'abrir_modal('data-url')'"  class="btn btn-warning">Open the gate</button>
+                            -->
                             </h5>
-                            
                             
                           </div>
                           <div class="col-sm-6">
@@ -138,7 +165,7 @@
             
             <!--footer th:replace="base/tabla :: footer"></footer-->
             <footer th:insert="base/footer :: footer" class="main-footer"></footer>
-            <aside th:replace="base/tabla :: barra_lateral"></aside>
+            <aside th:replace="base/dashboard :: barra_lateral"></aside>
             
         </div>
         

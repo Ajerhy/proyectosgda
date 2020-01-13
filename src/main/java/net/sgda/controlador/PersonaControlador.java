@@ -78,6 +78,21 @@ public class PersonaControlador {
     }
     
     
+    
+    
+    
+    
+    @RequestMapping(value = "/modalpersona", method=RequestMethod.GET)
+    public String ModalPersona(Model model){
+        model.addAttribute("titulo","Modal Persona");
+        model.addAttribute("link","/persona/form");
+        return "sgda/persona/form";
+    }
+    
+    
+    
+    
+    
     @InitBinder
     public void initBinder(WebDataBinder webDataBinder){
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");

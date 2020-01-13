@@ -42,6 +42,7 @@
                 <!-- Contenido -->
                 <section class="content">
                     <form th:action="@{/persona/guardar}" role="form" method="POST">
+                        <input type="hidden" name="ESTADO" value="1" id="ESTADO">
                         <div class="row">
                             <div class="col-xl-12 col-md-12 mb-12">
 
@@ -62,19 +63,19 @@
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
                                                             <label for="id_nombre">Nombre:</label>
-                                                            <input type="text" name="NOMBRE" placeholder="Nombre" maxlength="50" class="form-control" required>
+                                                            <input type="text" name="NOMBRE"  placeholder="Nombre" maxlength="50" class="form-control" id="NOMBRE" required="required">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
                                                             <label for="id_paterno">Apellido Paterno:</label>
-                                                            <input type="text" name="PATERNO" placeholder="Apellido Paterno" maxlength="50" class="form-control" required>
+                                                            <input type="text" name="PATERNO"  placeholder="Apellido Paterno" maxlength="50" class="form-control" id="PATERNO" required="required">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
                                                             <label for="id_materno">Apellido Materno:</label>
-                                                            <input type="text" name="MATERNO" placeholder="Apellido Materno" maxlength="50" class="form-control" required>
+                                                            <input type="text" name="MATERNO"  placeholder="Apellido Materno" maxlength="50" class="form-control" id="MATERNO" required="required">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -83,30 +84,26 @@
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
                                                             <label for="id_ci">Numero CI:</label>
-                                                            <input type="text" name="CI" placeholder="Numero Cedula de Identidad" maxlength="50" class="form-control"  required>
+                                                            <input type="text" name="CI"  placeholder="Numero Cedula de Identidad" maxlength="50" class="form-control" id="CI" required="required">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
                                                             <label for="id_nacimiento">Fecha de Nacimiento</label>
-                                                            <input type="text" name="NACIMIENTO" placeholder="Fecha de Nacimiento" class="form-control" id="NACIMIENTO">
-                                                            <!--input type="date" name="NACIMIENTO" placeholder="Fecha de Nacimiento" class="form-control" id="NACIMIENTO"-->
+                                                            <input type="text" name="NACIMIENTO"  placeholder="Fecha de Nacimiento" class="form-control" id="NACIMIENTO">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
                                                             <label for="id_sexo">Sexo</label>
                                                             <div class="form-check">
-                                                                <!--label class="form-check-label" for="destacado0"></label><br-->
-                                                                <input class="form-check-input" type="radio" name="SEXO" id="estado" value="1" checked="checked">
+                                                                <input class="form-check-input" type="radio" name="SEXO"  id="estado" value="1" checked="checked">
                                                                 <label class="form-check-label" for="destacado1">Hombre</label>
                                                             </div>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="SEXO" id="estado" value="0">
+                                                                <input class="form-check-input" type="radio" name="SEXO"  id="estado" value="0">
                                                                 <label class="form-check-label" for="destacado2">Mujer</label>
                                                             </div>
-                                                            <!--th:field="*{destacado}"-->
-                                                            <!--input type="checkbox" name="ESTADO" value="1" class="form-control" /-->
                                                         </div>
                                                     </div>
                                                 </div>
