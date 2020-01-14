@@ -1,118 +1,124 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
     <head th:replace="base/dashboard :: head">
-	<meta charset="UTF-8"/>
+        <meta charset="UTF-8"/>
     </head>
-    
+
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
-            
+
             <!--th:insert-->
             <!--div th:replace="base/dashboard :: navbar"></div-->
             <nav th:replace="base/navbar :: navbar"></nav>
             <!--aside th:replace="base/dashboard :: sidebar"></aside-->
             <aside th:replace="base/sidebar :: sidebar"></aside>
-            
+            <!-- Exit -->
+            <th:block th:include="base/modal"></th:block>
+            <!-- End Exit -->
+
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
-                
-              <!-- Content Header (Page header) -->
-              <div class="content-header">
+
+                <!-- Content Header (Page header) -->
+                <div class="content-header">
                     <div class="container-fluid">
-                      <div class="row mb-2">
-                        <div class="col-sm-6">
-                          <h1>Dashboard</h1>
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1>Dashboard</h1>
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                                    <li class="breadcrumb-item active">Dashboard</li>
+                                </ol>
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                          <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
-                          </ol>
-                        </div>
-                      </div>
                     </div>
-              </div>
-              <!-- /.content-header -->
-              
-              <!-- Main content -->
-              <div class="content">
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="card">
-                        <div class="card-body">
-                          <h5 class="card-title">Título de la Tarjeta</h5>
+                </div>
+                <!-- /.content-header -->
 
-                          <p class="card-text">
-                            Algún texto de ejemplo rápido para construir sobre el título de la tarjeta 
-                            y conformar la mayor parte del contenido de las tarjetas.
-                          </p>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Título de la Tarjeta</h5>
 
-                          <a href="#" class="card-link">Enlace de tarjeta</a>
-                          <a href="#" class="card-link">Otro enlace</a>
-                          <a href="/modal" class="card-link">Modales</a>
+                                        <p class="card-text">
+                                            Algún texto de ejemplo rápido para construir sobre el título de la tarjeta 
+                                            y conformar la mayor parte del contenido de las tarjetas.
+                                        </p>
+
+                                        <a href="#" class="card-link">Enlace de tarjeta</a>
+                                        <a href="#" class="card-link">Otro enlace</a>
+                                        <a href="/modal" class="card-link">Modales</a>
+                                    </div>
+                                </div>
+
+                                <div class="card card-primary card-outline">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Título de la tarjeta</h5>
+
+                                        <p class="card-text">
+                                            Algún texto de ejemplo rápido para construir sobre el título 
+                                            de la tarjeta y conformar la mayor parte del contenido de las tarjetas.
+                                        </p>
+                                        <a href="#" class="card-link">Enlace de tarjeta</a>
+                                        <a href="#" class="card-link">Otro enlace</a>
+                                    </div>
+                                </div><!-- /.card -->
+                            </div>
+                            <!-- /.col-md-6 -->
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="m-0">Destacados</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-title">Tratamiento especial de título</h6>
+
+                                        <p class="card-text">Con el texto de apoyo a continuación como una introducción natural al contenido adicional.</p>
+                                        <a href="#" class="btn btn-primary">Ir a algún lugar</a>
+                                    </div>
+                                </div>
+
+                                <div class="card card-primary card-outline">
+                                    <div class="card-header">
+                                        <h5 class="m-0">Destacados</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6 class="card-title">Tratamiento especial de título</h6>
+
+                                        <p class="card-text">Con el texto de apoyo a continuación como una introducción natural al contenido adicional.</p>
+                                        <a href="#" class="btn btn-primary">Ir a algún lugar</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.col-md-6 -->
                         </div>
-                      </div>
+                        <!-- /.row -->
+                    </div><!-- /.container-fluid -->
 
-                      <div class="card card-primary card-outline">
-                        <div class="card-body">
-                          <h5 class="card-title">Título de la tarjeta</h5>
 
-                          <p class="card-text">
-                            Algún texto de ejemplo rápido para construir sobre el título 
-                            de la tarjeta y conformar la mayor parte del contenido de las tarjetas.
-                          </p>
-                          <a href="#" class="card-link">Enlace de tarjeta</a>
-                          <a href="#" class="card-link">Otro enlace</a>
-                        </div>
-                      </div><!-- /.card -->
-                    </div>
-                    <!-- /.col-md-6 -->
-                    <div class="col-lg-6">
-                      <div class="card">
-                        <div class="card-header">
-                          <h5 class="m-0">Destacados</h5>
-                        </div>
-                        <div class="card-body">
-                          <h6 class="card-title">Tratamiento especial de título</h6>
 
-                          <p class="card-text">Con el texto de apoyo a continuación como una introducción natural al contenido adicional.</p>
-                          <a href="#" class="btn btn-primary">Ir a algún lugar</a>
-                        </div>
-                      </div>
+                </section>
+                <!-- /.content -->
 
-                      <div class="card card-primary card-outline">
-                        <div class="card-header">
-                          <h5 class="m-0">Destacados</h5>
-                        </div>
-                        <div class="card-body">
-                          <h6 class="card-title">Tratamiento especial de título</h6>
-
-                          <p class="card-text">Con el texto de apoyo a continuación como una introducción natural al contenido adicional.</p>
-                          <a href="#" class="btn btn-primary">Ir a algún lugar</a>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- /.col-md-6 -->
-                  </div>
-                  <!-- /.row -->
-                </div><!-- /.container-fluid -->
-              </div>
-              <!-- /.content -->
-              
             </div>
             <!-- /.content-wrapper -->
-            
-            
+
+
             <aside th:replace="base/dashboard :: barra_lateral"></aside>
-            
+
             <footer th:insert="base/footer :: footer" class="main-footer"></footer>
             <!--footer th:replace="base/dashboard :: footer"></footer-->
-            
+
         </div>    
-        
+
         <div th:replace="base/dashboard :: js"></div>
-        
+
     </body>
-    
+
 </html>

@@ -16,9 +16,10 @@ Web
 Thymeleaf
 Devtools
 
-romel baboso
-
 Netbean
+*******
+NetBeans IDE 8.0.1
+1.8.0_111
 *******
 Parar App
 

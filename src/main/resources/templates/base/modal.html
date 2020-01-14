@@ -1,8 +1,36 @@
 <div class="modal fade" id="popup"></div>
 
+<!-- Modal -->
+<div class="modal fade" id="modal-salir">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">¿Cerrar Sesión para Alfresco Gomez ?</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Al dar click en el botón Salir, cerrará la sesión para <mark> Alfresco Gomez&hellip;</mark>
+                </p>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-success" data-dismiss="modal" onclick="return cerrar_modal();">Cancelar</button>
+                <!--button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button-->
+                <!--a class="btn btn-danger" onclick="window.location.href='/'">Salir1</a-->
+                <button type="submit" class="btn btn-danger" onclick="location.href = '/';">Salir</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- End Modal -->
+
 <script type="text/javascript">
     function abrir_modal(url) {
-        $("#popup").load(url, function() {
+        $("#popup").load(url, function () {
             $(this).modal({
                 backdrop: 'static',
                 keyboard: false
@@ -11,7 +39,7 @@
         });
         return false;
     }
-    
+
     function cerrar_modal() {
         $('#popup').modal('hide');
         return false;

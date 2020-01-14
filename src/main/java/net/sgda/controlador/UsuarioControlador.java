@@ -67,7 +67,7 @@ public class UsuarioControlador {
     @GetMapping("/perfil")
     public String PerfilUsuario(Model model){
         model.addAttribute("titulo","Perfil Usuario");
-        model.addAttribute("link","/perfil");
+        model.addAttribute("link","/usuario/perfil");
         return "sgda/usuario/perfil";
     }
     

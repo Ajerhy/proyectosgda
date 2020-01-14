@@ -23,7 +23,7 @@ public class PersonaServicioImpl implements IPersonaServicio{
          persona1.setMATERNO("Lora");
          persona1.setCI(98760);
          persona1.setSEXO(true);
-         persona1.setNACIMIENTO(dma.parse("01/01/2020"));
+         persona1.setNACIMIENTO(dma.parse("01/01/2025"));
          persona1.setESTADO(true);
          
          Persona persona2 = new Persona();
@@ -33,7 +33,7 @@ public class PersonaServicioImpl implements IPersonaServicio{
          persona2.setMATERNO("Nora");
          persona2.setCI(54321);
          persona2.setSEXO(false);
-         persona2.setNACIMIENTO(dma.parse("01/01/2000"));
+         persona2.setNACIMIENTO(dma.parse("01/01/2020"));
          persona2.setESTADO(false);
         
          Persona persona3 = new Persona();
@@ -48,9 +48,9 @@ public class PersonaServicioImpl implements IPersonaServicio{
         
          Persona persona4 = new Persona();
          persona4.setID_PERSONA(4);
-         persona4.setNOMBRE("Fenifer");
-         persona4.setPATERNO("Flores");
-         persona4.setMATERNO("Nakashima");
+            persona4.setNOMBRE("Jose");
+         persona4.setPATERNO("Buely");
+         persona4.setMATERNO("Natta");
          persona4.setCI(12345);
          persona4.setSEXO(false);
          persona4.setNACIMIENTO(dma.parse("01/01/2010"));
@@ -58,9 +58,9 @@ public class PersonaServicioImpl implements IPersonaServicio{
          
          Persona persona5 = new Persona();
          persona5.setID_PERSONA(5);
-         persona5.setNOMBRE("Fenifer");
-         persona5.setPATERNO("Flores");
-         persona5.setMATERNO("Nakashima");
+         persona5.setNOMBRE("Chin le");
+         persona5.setPATERNO("Huan du");
+         persona5.setMATERNO("Gonh");
          persona5.setCI(12345);
          persona5.setSEXO(true);
          persona5.setNACIMIENTO(dma.parse("01/01/2005"));
@@ -68,9 +68,9 @@ public class PersonaServicioImpl implements IPersonaServicio{
          
          Persona persona6 = new Persona();
          persona6.setID_PERSONA(6);
-         persona6.setNOMBRE("Fenifer");
-         persona6.setPATERNO("Flores");
-         persona6.setMATERNO("Nakashima");
+         persona6.setNOMBRE("Kali");
+         persona6.setPATERNO("Mon");
+         persona6.setMATERNO("Nima");
          persona6.setCI(12345);
          persona6.setSEXO(false);
          persona6.setNACIMIENTO(dma.parse("01/01/2000"));
@@ -78,9 +78,9 @@ public class PersonaServicioImpl implements IPersonaServicio{
          
          Persona persona7 = new Persona();
          persona7.setID_PERSONA(7);
-         persona7.setNOMBRE("Fenifer");
-         persona7.setPATERNO("Flores");
-         persona7.setMATERNO("Nakashima");
+         persona7.setNOMBRE("Ross");
+         persona7.setPATERNO("Sossa");
+         persona7.setMATERNO("Nakamura");
          persona7.setCI(12345);
          persona7.setSEXO(false);
          persona7.setNACIMIENTO(dma.parse("01/01/1995"));
@@ -88,9 +88,9 @@ public class PersonaServicioImpl implements IPersonaServicio{
          
          Persona persona8 = new Persona();
          persona8.setID_PERSONA(8);
-         persona8.setNOMBRE("Fenifer");
-         persona8.setPATERNO("Flores");
-         persona8.setMATERNO("Nakashima");
+         persona8.setNOMBRE("Ghone");
+         persona8.setPATERNO("Potro");
+         persona8.setMATERNO("Del");
          persona8.setCI(12345);
          persona8.setSEXO(true);
          persona8.setNACIMIENTO(dma.parse("01/01/1990"));
