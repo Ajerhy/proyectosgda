@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
-
     <head th:replace="base/index :: head">
         <meta charset="UTF-8"/>
     </head>
@@ -21,7 +20,7 @@
                         <p class="login-box-msg">Iniciar Sessión</p>
                         <form action="" method="POST">
                             <div class="input-group mb-3">
-                                <input type="text" name="usuario" class="form-control" placeholder="usuario">
+                                <input type="text" name="usuario" class="form-control" placeholder="usuario" autocomplete="off" required/>
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-user"></span>
@@ -29,7 +28,7 @@
                                 </div>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="password" name="password" class="form-control" placeholder="password">
+                                <input type="password" name="password" class="form-control" placeholder="password" autocomplete="off" required/>
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-lock"></span>

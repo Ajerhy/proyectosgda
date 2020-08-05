@@ -72,8 +72,17 @@ public class UsuarioControlador {
     }
     
     
-    
-    
+    /*
+    @GetMapping("/listar")
+    @RequestMapping(value = "/listar",method = RequestMethod.GET)
+    @GetMapping("/guardar")
+    @RequestMapping(value = "/guardar",method = RequestMethod.POST)
+    REST FULL WEBSERVICE
+    @GetMapping("/eliminar")
+    @RequestMapping(value = "/eliminar",method = RequestMethod.DELETE)
+    @GetMapping("/actualizar")
+    @RequestMapping(value = "/actualizar",method = RequestMethod.PUT)
+    */
     
     
     
