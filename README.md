@@ -49,3 +49,6 @@ update the maven proyecto
     @GetMapping("/actualizar")
     @RequestMapping(value = "/actualizar",method = RequestMethod.PUT)
     */
+
+Tabulacion de NetBeans
+Alt+ Shift+F

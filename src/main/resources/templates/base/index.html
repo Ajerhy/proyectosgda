@@ -112,6 +112,23 @@
             <script type="text/javascript" th:src="@{/plugins/jquery/jquery.min.js}"></script>
             <!-- Bootstrap 4 -->
             <script type="text/javascript" th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+            
+            <script>
+    /* ==============================================
+    Mensaje mostrar Alert
+    =============================================== */
+
+    var resizefunc = [];
+
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();
+        });
+        },
+        /*  Tiempo 5s */
+        5000);
+
+            </script>
         </div>
 
     </body>

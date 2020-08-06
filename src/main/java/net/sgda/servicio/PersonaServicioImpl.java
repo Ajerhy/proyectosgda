@@ -127,9 +127,9 @@ public class PersonaServicioImpl implements IPersonaServicio{
 
     @Override
     public Persona buscarIdPersona(Integer ID_PERSONA) {
-    for (Persona u: lista) {
-            if(u.getID_PERSONA()==ID_PERSONA){
-                return u;
+    for (Persona p: lista) {
+            if(p.getID_PERSONA()==ID_PERSONA){
+                return p;
             }
         }
         return null;
