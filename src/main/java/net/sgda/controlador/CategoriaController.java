@@ -67,18 +67,18 @@ public class CategoriaController {
         return Listar;
     }
 
-    @GetMapping("/detalle/{id}")
+    @GetMapping("/detalle/{ID}")
     public String DetalleCategoria(
-            @PathVariable("id")int idCategoria,
+            @PathVariable("ID")int ID_CATEGORIA,
             Model model){
         model.addAttribute("titulo","Detalle Categoria");
-        model.addAttribute("link","/categoria/detalle/"+idCategoria);
+        model.addAttribute("link","/categoria/detalle/"+ID_CATEGORIA);
         
-        Categoria categoria = servicioCategoria.buscarIdCategoria(idCategoria);
+        Categoria categoria = servicioCategoria.buscarIdCategoria(ID_CATEGORIA);
         model.addAttribute("categoria", categoria);
         
-        System.out.println("PathVariable ID:"+idCategoria);
-        model.addAttribute("idCategoria",idCategoria);
+        System.out.println("PathVariable ID:"+ID_CATEGORIA);
+        model.addAttribute("idCategoria",ID_CATEGORIA);
         return Detalle;
     }
     
@@ -114,7 +114,28 @@ public class CategoriaController {
         model.addAttribute("idCategoria",idCategoria);
         return Eliminar;
     }
+      
+    
+    
+    @GetMapping("/editar/{id}")
+    public String EditarCategoria(
+            @PathVariable("id")int idCategoria,
+            Model model){
+        model.addAttribute("titulo","Editar Categoria");
+        model.addAttribute("link","/categoria/editar/"+idCategoria);
         
+        Categoria categoria = servicioCategoria.buscarIdCategoria(idCategoria);
+        model.addAttribute("categoria", categoria);
+        
+        System.out.println("PathVariable ID:"+idCategoria);
+        model.addAttribute("idCategoria",idCategoria);
+        return Formulario;
+    }
+    
+    
+    
+    
+    
     /*    
     //@GetMapping("/eliminar")
     @RequestMapping(value = "/eliminar",method = RequestMethod.DELETE)

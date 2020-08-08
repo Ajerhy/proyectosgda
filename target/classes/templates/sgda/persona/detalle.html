@@ -1,32 +1,68 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="base/tabla::head">
-	<meta charset="UTF-8"/>
+    <head th:replace="base/dashboard::head">
+        <meta charset="UTF-8"/>
     </head>
-    
+
     <body class="hold-transition sidebar-mini">
-        
         <div class="wrapper">
-            
+
             <!--th:insert-->
             <!--div th:replace="base/dashboard :: navbar"></div-->
             <nav th:replace="base/navbar :: navbar"></nav>
             <!--aside th:replace="base/dashboard :: sidebar"></aside-->
             <aside th:replace="base/sidebar :: sidebar"></aside>
-            
+
             <div class="content-wrapper">
+
+                <!-- Barra -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+
+                                <h5 class="m-0 text-dark">Detalle Persona &nbsp;
+
+                                </h5>
+
+
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                                    <li class="breadcrumb-item active"><a href="/persona/listar">Persona</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Barra -->
+
                 
+                <!-- Contenido -->
+                <section class="content">
+                    <h1 th:text="'El ID es:'+${persona.ID_PERSONA}"></h1>
+                    <h2 th:text="'El Nombre es:'+${persona.NOMBRE}"></h2>
+                    <h3 th:text="'El Paterno es:'+${persona.PATERNO}"></h3>
+                    <h3 th:text="'El Materno es:'+${persona.MATERNO}"></h3>
+                    <h3 th:text="'El Cedula de Identidad es:'+${persona.CI}"></h3>
+                    <h3 th:text="'El Fecha Nacimiento es:'+${#dates.format(persona.NACIMIENTO, 'dd/MM/yyyy')}"></h3>
+                    
+                    <h3 th:text="'El Cedula de Identidad es:'+${persona.SEXO}"></h3>
+                    
+                </section>
+                <!-- End Contenido -->
                 
-            
             </div>
-            
+
             <aside th:replace="base/dashboard :: barra_lateral"></aside>
             <footer th:insert="base/footer :: footer" class="main-footer"></footer>
             <!--footer th:replace="base/dashboard :: footer"></footer-->
-            
+
         </div>
-        
+
         <div th:replace="base/dashboard :: js"></div>
-        
+
     </body>
+
 </html>

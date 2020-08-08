@@ -139,7 +139,7 @@
                                                         </button>
                                                         <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(68px, 38px, 0px);">
 
-                                                            <a class="dropdown-item" th:href="@{/persona/detalle/{ID} (ID=${persona.ID_PERSONA}) }">
+                                                            <a class="dropdown-item" th:href="@{/persona/detalle/{ID} (ID=${persona.ID_PERSONA})}" data-toggle="tooltip" data-placement="left" title="Detalle">
                                                                 <i class="glyphicon glyphicon-eye-close"></i> 
                                                                 Ver detalle 
                                                             </a>
@@ -148,10 +148,19 @@
                                                                 Ver detalles 1
                                                             </a>
 
-                                                            <a class="dropdown-item" th:href="@{/persona/eliminar(ID=${persona.ID_PERSONA}) }" data-toggle="tooltip" data-placement="left" title="Eliminar">
+                                                            <a class="dropdown-item" th:href="@{/persona/eliminar/{ID} (ID=${persona.ID_PERSONA})}" data-toggle="tooltip" data-placement="left" title="Eliminar">
                                                                 <i class="glyphicon glyphicon-trash"></i> 
                                                                 Eliminar
                                                             </a>
+
+                                                            <a class="dropdown-item" th:href="@{/persona/editar/{ID} (ID=${persona.ID_PERSONA})}" data-toggle="tooltip" data-placement="left" title="Editar">
+                                                                <i class="glyphicon glyphicon-plus"></i> 
+                                                                Editar
+                                                            </a>
+                                                            <!--a class="dropdown-item" th:href="@{/persona/eliminar(ID=${persona.ID_PERSONA}) }" data-toggle="tooltip" data-placement="left" title="Eliminar">
+                                                                <i class="glyphicon glyphicon-trash"></i> 
+                                                                Eliminar
+                                                            </a-->
 
                                                             <div class="dropdown-divider"></div>
                                                             <a class="dropdown-item" href="#">Separados Link</a>

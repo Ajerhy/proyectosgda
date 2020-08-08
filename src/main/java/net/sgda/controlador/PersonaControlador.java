@@ -24,23 +24,31 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(value = "/persona")
 public class PersonaControlador {
     
+    private String Listar = "sgda/persona/listar";
+    private String Formulario = "sgda/persona/crear";
+    private String Eliminar = "sgda/persona/eliminar";
+    private String Detalle = "sgda/persona/detalle";
+    
     @Autowired
     private IPersonaServicio servicioPersona;
     
-    @RequestMapping(value = "/listar", method=RequestMethod.GET)
+    //@RequestMapping(value = "/listar", method=RequestMethod.GET)
+    @GetMapping("/listar")
     public String ListarPersona(Model model){
         model.addAttribute("titulo","Listar Persona");
         model.addAttribute("link","/persona/listar");
+        
         List<Persona> lista = servicioPersona.buscarTodos();
         model.addAttribute("personas",lista);
-        return "sgda/persona/listar";
+        return Listar;
     }
     
-    @RequestMapping(value = "/crear", method=RequestMethod.GET)
+    //@RequestMapping(value = "/crear", method=RequestMethod.GET)
+    @GetMapping("/crear")
     public String CrearPersona(Model model){
         model.addAttribute("titulo","Crear Persona");
         model.addAttribute("link","/persona/crear");
-        return "sgda/persona/crear";
+        return Formulario;
     }
     
     @PostMapping("/guardar")   
@@ -57,29 +65,41 @@ public class PersonaControlador {
         servicioPersona.guardar(persona);
         System.out.println("Usuarios:"+persona);
         return "sgda/persona/listpersona";
-        //return "sgda/usuario/listar";
     }
     
-    @GetMapping("/detalle/{id}")
+    @GetMapping("/detalle/{ID}")
     public String DetallePersona(@PathVariable("ID") int ID_PERSONA, Model model) {
         Persona persona = servicioPersona.buscarIdPersona(ID_PERSONA);
-        System.out.println("Vacante: " + persona);
+        System.out.println("Detalle Persona: " + persona);
         model.addAttribute("titulo","Detalle Persona");
+        model.addAttribute("link","/persona/detalle/"+ID_PERSONA);
+        
         model.addAttribute("persona", persona);
-        return "sgda/persona/detalle";
+        return Detalle;
     }
     
-    @GetMapping("/eliminar")
-    public String EliminarPersona(@RequestParam("ID") int ID_PERSONA, Model model) {
+    @GetMapping("/eliminar/{ID}")
+    public String EliminarPersona(@PathVariable("ID") int ID_PERSONA, Model model) {
         System.out.println("Borrando Persona con ID: " + ID_PERSONA);
         model.addAttribute("titulo","Eliminar Persona");
+        model.addAttribute("link","/persona/eliminar/"+ID_PERSONA);
+        
         model.addAttribute("ID", ID_PERSONA);
-        return "sgda/persona/eliminar";
+        return Eliminar;
     }
+    //@RequestParam("ID")
     
     
-    
-    
+    @GetMapping("/editar/{ID}")
+    public String EditarPersona(@PathVariable("ID") int ID_PERSONA, Model model) {
+        Persona persona = servicioPersona.buscarIdPersona(ID_PERSONA);
+        System.out.println("Editar Persona: " + persona);
+        model.addAttribute("titulo","Editar Persona");
+        model.addAttribute("link","/persona/detalle/"+ID_PERSONA);
+        
+        model.addAttribute("persona", persona);
+        return Formulario;
+    }
     
     
     @RequestMapping(value = "/modalpersona", method=RequestMethod.GET)

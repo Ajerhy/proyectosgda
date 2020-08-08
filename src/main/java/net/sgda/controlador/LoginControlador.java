@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +20,7 @@ public class LoginControlador {
     private String BloqueoPantalla = "sgda/login/bloqueo";
     private String Modal = "sgda/dashboard/modal";
     
-    
+    //@GetMapping("/")
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String Login(Model model) {
         model.addAttribute("titulo","Login SGDA");
@@ -27,7 +28,8 @@ public class LoginControlador {
         
         return Login;
     }
-
+    
+    //@GetMapping("/registrarse")
     @RequestMapping(value = "/registrarse", method = RequestMethod.GET)
     public String Registrarse(Model model) {
         model.addAttribute("titulo", "Registrarse SGDA");
@@ -36,6 +38,7 @@ public class LoginControlador {
         return Registrarse;
     }
     
+    //@PostMapping("/dashboard")
     //@RequestMapping(value = "/dashboard", method = RequestMethod.POST)
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
     public String Dashboard(Model model/*,
@@ -53,6 +56,7 @@ public class LoginControlador {
         return Dashboard;
     }
     
+    //@GetMapping("/lockscreen")
     @RequestMapping(value = "/lockscreen", method = RequestMethod.GET)
     public String BloqueoPantalla(Model model){
         model.addAttribute("titulo","Pantalla Bloqueada");
@@ -61,12 +65,14 @@ public class LoginControlador {
         return BloqueoPantalla;
     }
     
+    //@GetMapping("/modal")
     @RequestMapping(value = "/modal", method = RequestMethod.GET)
     public String Modal(Model model){
         model.addAttribute("titulo","Modal");
         model.addAttribute("link","/modal");
         return Modal;
     }
+    
     /*
     ///Index
     @GetMapping("/")
