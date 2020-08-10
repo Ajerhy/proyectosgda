@@ -1,130 +1,141 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="base/dashboard::head">
-	<meta charset="UTF-8"/>
+        <meta charset="UTF-8"/>
     </head>
-    
+
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
-            
+
             <!--th:insert-->
             <!--div th:replace="base/dashboard :: navbar"></div-->
             <nav th:replace="base/navbar :: navbar"></nav>
             <!--aside th:replace="base/dashboard :: sidebar"></aside-->
             <aside th:replace="base/sidebar :: sidebar"></aside>
-            
-                <div class="content-wrapper">
-                    
-                    <!-- Barra -->
-                    <section class="content-header">
-                          <div class="container-fluid">
-                            <div class="row mb-2">
-                              <div class="col-sm-6">
+
+            <div class="content-wrapper">
+
+                <!-- Barra -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
 
                                 <h5 class="m-0 text-dark">Crear Categorias &nbsp;
-                                    
+
                                 </h5>
 
 
-                              </div>
-                              <div class="col-sm-6">
-                                <ol class="breadcrumb float-sm-right">
-                                  <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-                                  <li class="breadcrumb-item active"><a href="/categoria/listar">Categoria</a></li>
-                                </ol>
-                              </div>
                             </div>
-                          </div>
-                    </section>
-                    <!-- End Barra -->
-                    
-                    
-                    <!-- Contenido -->
-                    <section class="content">
-                       <form th:action="@{/categoria/guardar}" role="form" method="POST">
-                            <div class="row">
-                                <div class="col-xl-12 col-md-12 mb-12">
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                                    <li class="breadcrumb-item active"><a href="/categoria/listar">Categoria</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Barra -->
 
-                                    <div class="card card-default">
 
-                                        <div class="card-header">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Formulario Categoria
-                                            </div>
+                <div th:if="${#fields.hasErrors('*')}" class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h5><i class="icon fas fa-exclamation-triangle"></i> Error</h5>
+                    <div th:text="${msg}" role='alert'></div>
+
+                    <ul>
+                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+                    </ul>
+                </div>
+     
+
+                <!-- Contenido -->
+                <section class="content">
+                    <form th:action="@{/categoria/guardar}" role="form" method="POST" th:object="${categoria}">
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 mb-12">
+
+                                <div class="card card-default">
+
+                                    <div class="card-header">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Formulario Categoria
                                         </div>
-
-                                        <div class="card-body">
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col mr-2">
-                                                    <!--div class="dropdown-divider"></div-->
-                                                    
-                                                    <div class="row">
-                                                        <div class="col-12 col-md-4">
-                                                            <div class="form-group">
-                                                                <label for="id_nombre">Nombre:</label>
-                                                                <input type="text" name="NOMBRE" placeholder="Nombre" maxlength="50" class="form-control" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-4">
-                                                            <div class="form-group">
-                                                                <label for="id_sigla">Sigla:</label>
-                                                                <input type="text" name="SIGLA" placeholder="Sigla" maxlength="50" class="form-control"  required>
-                                                            </div>
-                                                        </div>
-                                                        <!--div class="col-12 col-md-4">
-                                                            <div class="form-group">
-                                                                <label for="id_sigla">Registro</label>
-                                                                <input type="date" name="REGISTRO" placeholder="registro" class="form-control"  required>
-                                                            </div>
-                                                        </div-->
-                                                    </div>
-                                                    
-                                                    
-                                                    <div class="form-group">
-                                                        <label for="id_descripcion">Estado</label>
-                                                        <div class="form-check">
-                                                            <!--label class="form-check-label" for="destacado0"></label><br-->
-                                                            <input class="form-check-input" type="radio" name="ESTADO" id="estado" value="1" checked="checked">
-                                                            <label class="form-check-label" for="destacado1">Activo</label>
-                                                        </div>
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="ESTADO" id="estado" value="0">
-                                                            <label class="form-check-label" for="destacado2">Inactivo</label>
-                                                        </div>
-                                                        <!--th:field="*{destacado}"-->
-                                                        <!--input type="checkbox" name="ESTADO" value="1" class="form-control" /-->
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Botones -->
-                                        <div class="card-footer">
-                                            <button type="submit" class="btn btn-danger"><span class="fa fa-save"></span> Guardar</button>
-                                            <a th:href="@{/categoria/listar}" class="btn btn-success"><i class="far fa-hand-point-left"></i> Cancelar</a>
-                                            <!--button type="reset" class="btn btn-success"><i class="far fa-hand-point-left"></i> Cancelar</button-->
-                                        </div>
-                                        <!-- Fin Botones -->
-
                                     </div>
 
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <!--div class="dropdown-divider"></div-->
+
+                                                <div class="row">
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="id_nombre">Nombre:</label>
+                                                            <input type="text" name="NOMBRE" placeholder="Nombre" maxlength="50" class="form-control" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="id_sigla">Sigla:</label>
+                                                            <input type="text" name="SIGLA" placeholder="Sigla" maxlength="50" class="form-control"  required>
+                                                        </div>
+                                                    </div>
+                                                    <!--div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="id_sigla">Registro</label>
+                                                            <input type="date" name="REGISTRO" placeholder="registro" class="form-control"  required>
+                                                        </div>
+                                                    </div-->
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label for="id_descripcion">Estado</label>
+                                                    <div class="form-check">
+                                                        <!--label class="form-check-label" for="destacado0"></label><br-->
+                                                        <input class="form-check-input" type="radio" name="ESTADO" id="estado" value="1" checked="checked">
+                                                        <label class="form-check-label" for="destacado1">Activo</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="ESTADO" id="estado" value="0">
+                                                        <label class="form-check-label" for="destacado2">Inactivo</label>
+                                                    </div>
+                                                    <!--th:field="*{destacado}"-->
+                                                    <!--input type="checkbox" name="ESTADO" value="1" class="form-control" /-->
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Botones -->
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-danger"><span class="fa fa-save"></span> Guardar</button>
+                                        <a th:href="@{/categoria/listar}" class="btn btn-success"><i class="far fa-hand-point-left"></i> Cancelar</a>
+                                        <!--button type="reset" class="btn btn-success"><i class="far fa-hand-point-left"></i> Cancelar</button-->
+                                    </div>
+                                    <!-- Fin Botones -->
+
                                 </div>
+
                             </div>
-                        </form>
-                    </section>
-                    <!-- End Contenido -->
-                    
-                </div>
-                
-                <aside th:replace="base/dashboard :: barra_lateral"></aside>
-                <footer th:insert="base/footer :: footer" class="main-footer"></footer>
-                <!--footer th:replace="base/dashboard :: footer"></footer-->
-                
+                        </div>
+                    </form>
+                </section>
+                <!-- End Contenido -->
+
             </div>
-        
-            <div th:replace="base/dashboard :: js"></div>
-            
+
+            <aside th:replace="base/dashboard :: barra_lateral"></aside>
+            <footer th:insert="base/footer :: footer" class="main-footer"></footer>
+            <!--footer th:replace="base/dashboard :: footer"></footer-->
+
+        </div>
+
+        <div th:replace="base/dashboard :: js"></div>
+
     </body>
-    
+
 </html>
