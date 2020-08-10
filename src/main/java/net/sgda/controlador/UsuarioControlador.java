@@ -54,10 +54,8 @@ public class UsuarioControlador {
         servicioUsuario.guardar(usuario);
         model.addAttribute("titulo","Listar Usuario");
         System.out.println("Usuarios:"+usuario);
-        //model.addAttribute("usuario",Usuario);
-        //return "sgda/usuario/detalle";
-        return "sgda/usuario/listusuario";
-        //return "sgda/usuario/listar";
+        
+        return "redirect:/usuario/listar";
     }
     
     

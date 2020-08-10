@@ -56,10 +56,6 @@ public class SubCategoriaController {
         servicioCategoria.guardar(categoria);
         System.out.println("Categorias:"+categoria);
         
-        ///
-        List<Categoria> lista = servicioCategoria.buscarTodos();
-        model.addAttribute("categorias",lista);
-        //
-        return Listar;
+        return "redirect:/sub/categoria/listar";
     }
 }

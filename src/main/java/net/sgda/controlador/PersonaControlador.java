@@ -64,7 +64,9 @@ public class PersonaControlador {
         //Configurar de String a Date
         servicioPersona.guardar(persona);
         System.out.println("Usuarios:"+persona);
-        return "sgda/persona/listpersona";
+        //return "sgda/persona/listpersona";
+        
+        return "redirect:/persona/listar";
     }
     
     @GetMapping("/detalle/{ID}")

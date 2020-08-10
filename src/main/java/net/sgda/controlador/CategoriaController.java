@@ -60,11 +60,7 @@ public class CategoriaController {
         servicioCategoria.guardar(categoria);
         System.out.println("Categorias:"+categoria);
         
-        ///
-        List<Categoria> lista = servicioCategoria.buscarTodos();
-        model.addAttribute("categorias",lista);
-        //
-        return Listar;
+        return "redirect:/categoria/listar";
     }
 
     @GetMapping("/detalle/{ID}")
