@@ -1,6 +1,8 @@
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\controlador\HomeController.java
+D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\controlador\SubCategoriaController.java
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\servicio\IPersonaServicio.java
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\controlador\LoginControlador.java
+D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\modelo\SubCategoria.java
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\servicio\PersonaServicioImpl.java
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\controlador\CategoriaController.java
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\modelo\Persona.java

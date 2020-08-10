@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="base/dashboard::head">
+        <meta charset="UTF-8"/>
+    </head>
+
+    <body class="hold-transition sidebar-mini">
+        <div class="wrapper">
+
+            <!--th:insert-->
+            <!--div th:replace="base/dashboard :: navbar"></div-->
+            <nav th:replace="base/navbar :: navbar"></nav>
+            <!--aside th:replace="base/dashboard :: sidebar"></aside-->
+            <aside th:replace="base/sidebar :: sidebar"></aside>
+
+            <div class="content-wrapper">
+
+                <!-- Barra -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+
+                                <h5 class="m-0 text-dark">Detalle Categorias &nbsp;
+
+                                </h5>
+
+
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                                    <li class="breadcrumb-item active"><a href="/categoria/listar">Categoria</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Barra -->
+
+                
+                <!-- Contenido -->
+                <section class="content">
+                    <h1 th:text="'El ID es:'+${categoria.ID_CATEGORIA}"></h1>
+                    <h2 th:text="'El Nombre es:'+${categoria.NOMBRE}"></h2>
+                    <h3 th:text="'El Sigla es:'+${categoria.SIGLA}"></h3>
+                    <h3 th:text="'El Fecha es:'+${#dates.format(categoria.REGISTRO, 'dd/MM/yyyy')}"></h3>
+                    <h3 th:text="'El Estado es:'+${categoria.ESTADO}"></h3>
+                </section>
+                <!-- End Contenido -->
+                
+            </div>
+
+            <aside th:replace="base/dashboard :: barra_lateral"></aside>
+            <footer th:insert="base/footer :: footer" class="main-footer"></footer>
+            <!--footer th:replace="base/dashboard :: footer"></footer-->
+
+        </div>
+
+        <div th:replace="base/dashboard :: js"></div>
+
+    </body>
+
+</html>

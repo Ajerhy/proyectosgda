@@ -2,7 +2,7 @@ package net.sgda.modelo;
 
 import java.util.Date;
 
-public class Categoria {
+public class Categoria{
 
     private Integer ID_CATEGORIA;
     private String NOMBRE;
