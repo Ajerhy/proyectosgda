@@ -13,11 +13,16 @@
             <nav th:replace="base/navbar :: navbar"></nav>
             <!--aside th:replace="base/dashboard :: sidebar"></aside-->
             <aside th:replace="base/sidebar :: sidebar"></aside>
+            <!-- Exit -->
+            <th:block th:include="base/modal"></th:block>
+            <!-- End Exit -->
             
             <div class="content-wrapper">
-                
-                <h1> Usuario Borrado ID [[${ID_USUARIO}]] </h1>
-            
+
+                <section class="content">
+                    <h1> Usuario Borrado ID [[${ID_USUARIO}]] </h1>
+                </section>
+
             </div>
             
             <aside th:replace="base/dashboard :: barra_lateral"></aside>

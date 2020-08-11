@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <!--head th:replace="base/tabla::head"-->
+    <head th:replace="base/dashboard :: head">
+        <meta charset="UTF-8"/>
+    </head>
+    
+    <body class="hold-transition sidebar-mini">
+        
+        <div class="wrapper">
+            
+            <!--th:insert-->
+            <!--div th:replace="base/dashboard :: navbar"></div-->
+            <nav th:replace="base/navbar :: navbar"></nav>
+            <!--aside th:replace="base/dashboard :: sidebar"></aside-->
+            <aside th:replace="base/sidebar :: sidebar"></aside>
+            <!-- Exit -->
+            <th:block th:include="base/modal"></th:block>
+            <!-- End Exit -->
+            
+            <div class="content-wrapper">
+                
+                <!-- Barra -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+
+                                <h5 class="m-0 text-dark">Modificar Personas &nbsp;
+
+                                </h5>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                    <li class="breadcrumb-item active">Persona</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- End Barra -->
+                
+                <!-- Contenido -->
+                <section class="content">
+                    <form th:action="@{/persona/guardar}" role="form" method="POST" th:object="${usuario}">
+                        <input type="hidden" name="ESTADO" value="1" id="ESTADO">
+                        <div class="row">
+                            <div class="col-xl-12 col-md-12 mb-12">
+
+                                <div class="card card-default">
+                                    
+                                    <div class="card-header">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    Formulario Modificar Persona
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-3">
+                                                <!--div class="dropdown-divider"></div-->
+
+                                                <div class="row">
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="id_nombre">Nombre:</label>
+                                                            <input type="text" name="NOMBRE" placeholder="Nombre" th:value="${persona.NOMBRE}" maxlength="50" class="form-control" id="NOMBRE" required="required">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="id_paterno">Apellido Paterno:</label>
+                                                            <input type="text" name="PATERNO" placeholder="Apellido Paterno" th:value="${persona.PATERNO}" maxlength="50" class="form-control" id="PATERNO" required="required">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="id_materno">Apellido Materno:</label>
+                                                            <input type="text" name="MATERNO" placeholder="Apellido Materno" th:value="${persona.MATERNO}" maxlength="50" class="form-control" id="MATERNO" required="required">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="id_ci">Numero CI:</label>
+                                                            <input type="text" name="CI" placeholder="Numero Cedula de Identidad" th:value="${persona.CI}" maxlength="50" class="form-control" id="CI" required="required">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="id_nacimiento">Fecha de Nacimiento</label>
+                                                            <input type="text" name="NACIMIENTO" placeholder="Fecha de Nacimiento" th:value="${#dates.format(persona.NACIMIENTO, 'dd/MM/yyyy')}" class="form-control" id="NACIMIENTO">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12 col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="id_sexo">Sexo</label>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="SEXO"  id="estado" value="1" checked="checked">
+                                                                <label class="form-check-label" for="destacado1">Hombre</label>
+                                                            </div>
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="SEXO"  id="estado" value="0">
+                                                                <label class="form-check-label" for="destacado2">Mujer</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Botones -->
+                                    <div class="card-footer">
+                                        <button type="submit" class="btn btn-danger"><span class="fa fa-save"></span> Guardar</button>
+                                        <a th:href="@{/persona/listar}" class="btn btn-success"><i class="far fa-hand-point-left"></i> Cancelar</a>
+                                            <!--button type="reset" class="btn btn-success"><i class="far fa-hand-point-left"></i> Cancelar</button-->
+                                    </div>
+                                    <!-- Fin Botones -->
+
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </form>
+                </section>
+                <!-- End Contenido -->
+                
+                
+                
+                
+            
+            </div>
+            
+            <aside th:replace="base/dashboard :: barra_lateral"></aside>
+            <footer th:insert="base/footer :: footer" class="main-footer"></footer>
+            <!--footer th:replace="base/dashboard :: footer"></footer-->
+            
+        </div>
+        <!--div th:insert="base/dashboard :: js"-->
+        <div th:include="base/dashboard :: js">
+        </div>
+        <script>
+        $(function () {
+            $("#NACIMIENTO").datepicker({
+                language: 'es',
+                /*format: 'yyyy-mm-dd',*/
+                format: 'dd-mm-yyyy',
+            });
+        });
+        </script>
+       
+    </body>
+</html>

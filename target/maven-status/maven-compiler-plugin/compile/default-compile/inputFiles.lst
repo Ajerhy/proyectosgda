@@ -1,10 +1,9 @@
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\controlador\HomeController.java
-D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\controlador\SubCategoriaController.java
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\servicio\IPersonaServicio.java
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\controlador\LoginControlador.java
+D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\controlador\CategoriaControlador.java
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\modelo\SubCategoria.java
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\servicio\PersonaServicioImpl.java
-D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\controlador\CategoriaController.java
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\modelo\Persona.java
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\servicio\IUsuarioServicio.java
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\servicio\ICategoriaServicio.java
@@ -14,4 +13,5 @@ D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\ProyectosgdaApplication.j
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\modelo\Categoria.java
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\servicio\CategoriaServicioImpl.java
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\modelo\Usuario.java
+D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\controlador\SubCategoriaControlador.java
 D:\Desarrollo\Java\proyectosgda\src\main\java\net\sgda\controlador\UsuarioControlador.java

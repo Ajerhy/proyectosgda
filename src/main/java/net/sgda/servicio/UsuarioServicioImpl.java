@@ -22,12 +22,14 @@ public class UsuarioServicioImpl implements IUsuarioServicio{
          usuario1.setCLAVE("alvarado 321");
          usuario1.setESTADO(true);
          usuario1.setIMAGEN("avatar1.png");
+         usuario1.setDETALLE("abcdefghijklmnopqrstuvwxyz");
          
          Usuario usuario2 = new Usuario();
          usuario2.setID_USUARIO(2);
          usuario2.setUSUARIO("feliciano");
          usuario2.setCLAVE("pessoa 123");
          usuario2.setESTADO(false);
+         usuario2.setDETALLE("aaaaaaaaaaaaaaaaaaaaaaaaaa");
          
          Usuario usuario3 = new Usuario();
          usuario3.setID_USUARIO(3);
@@ -35,6 +37,7 @@ public class UsuarioServicioImpl implements IUsuarioServicio{
          usuario3.setCLAVE("abrego 123");
          usuario3.setESTADO(true);
          usuario3.setIMAGEN("avatar3.png");
+         usuario3.setDETALLE("bbbbbbbbbbbbbbbbbbbbbbbbbbbb");
          
          Usuario usuario4 = new Usuario();
          usuario4.setID_USUARIO(4);
@@ -42,6 +45,7 @@ public class UsuarioServicioImpl implements IUsuarioServicio{
          usuario4.setCLAVE("arce 123");
          usuario4.setESTADO(true);
          usuario4.setIMAGEN("avatar4.png");
+         usuario4.setDETALLE("bbbbbbbbbbbbbbbbbbbbbbbbbbbb");
          
          Usuario usuario5 = new Usuario();
          usuario5.setID_USUARIO(5);
@@ -49,6 +53,7 @@ public class UsuarioServicioImpl implements IUsuarioServicio{
          usuario5.setCLAVE("soto 654");
          usuario5.setESTADO(false);
          usuario5.setIMAGEN("avatar5.png");
+         usuario5.setDETALLE("zyxwv");
          
          lista.add(usuario1);
          lista.add(usuario2);

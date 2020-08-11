@@ -12,6 +12,9 @@
             <nav th:replace="base/navbar :: navbar"></nav>
             <!--aside th:replace="base/dashboard :: sidebar"></aside-->
             <aside th:replace="base/sidebar :: sidebar"></aside>
+            <!-- Exit -->
+            <th:block th:include="base/modal"></th:block>
+            <!-- End Exit -->
             
                 <div class="content-wrapper">
                     
@@ -21,7 +24,7 @@
                             <div class="row mb-2">
                               <div class="col-sm-6">
 
-                                <h5 class="m-0 text-dark">Crear Categorias &nbsp;
+                                <h5 class="m-0 text-dark">Crear Sub Categorias &nbsp;
                                     
                                 </h5>
 
@@ -30,7 +33,7 @@
                               <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
                                   <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-                                  <li class="breadcrumb-item active"><a href="/categoria/listar">Categoria</a></li>
+                                  <li class="breadcrumb-item active"><a href="/sub/categoria/listar">Sub Categoria</a></li>
                                 </ol>
                               </div>
                             </div>
@@ -49,7 +52,7 @@
 
                                         <div class="card-header">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Formulario Categoria
+                                                Formulario Sub Categoria
                                             </div>
                                         </div>
 

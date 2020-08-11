@@ -70,14 +70,13 @@
                 </section>
                 <!-- End Barra -->
             
-                <!--div class="container">
-                    <div class="alert alert-info alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        FFF
+                <section class="content">
+                    <div th:if="${msg != null}" class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <h5><i class="icon fas fa-exclamation-triangle"></i> Informacion</h5>
+                        <div th:text="${msg}" role='alert'></div>
                     </div>
-                </div-->
+                </section>
                 
                <!-- Main content -->
                 <section class="content">
@@ -147,7 +146,15 @@
                                                                 <i class="glyphicon glyphicon-eye-open"></i> 
                                                                 Ver detalles 1
                                                             </a>
-
+                                                            
+                                                            
+                                                            <form th:action="@{/persona/modificar}" role="form" method="POST">
+                                                                <input type="hidden" name="ID" th:value="${persona.ID_PERSONA}">
+                                                                <button class="dropdown-item" type="submit">
+                                                                    Modificar 
+                                                                </button>
+                                                            </form>
+                                                            
                                                             <a class="dropdown-item" th:href="@{/persona/eliminar/{ID} (ID=${persona.ID_PERSONA})}" data-toggle="tooltip" data-placement="left" title="Eliminar">
                                                                 <i class="glyphicon glyphicon-trash"></i> 
                                                                 Eliminar

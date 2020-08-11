@@ -14,6 +14,9 @@
             <nav th:replace="base/navbar :: navbar"></nav>
             <!--aside th:replace="base/dashboard :: sidebar"></aside-->
             <aside th:replace="base/sidebar :: sidebar"></aside>
+            <!-- Exit -->
+            <th:block th:include="base/modal"></th:block>
+            <!-- End Exit -->
             
             <div class="content-wrapper">
                 
@@ -41,7 +44,7 @@
                 
                 <!-- Contenido -->
                 <section class="content">
-                    <form th:action="@{/persona/guardar}" role="form" method="POST">
+                    <form th:action="@{/persona/guardar}" role="form" method="POST" th:object="${usuario}">
                         <input type="hidden" name="ESTADO" value="1" id="ESTADO">
                         <div class="row">
                             <div class="col-xl-12 col-md-12 mb-12">

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping(value = "/persona")
@@ -26,8 +27,10 @@ public class PersonaControlador {
     
     private String Listar = "sgda/persona/listar";
     private String Formulario = "sgda/persona/crear";
+    private String Editar = "sgda/persona/editar";
     private String Eliminar = "sgda/persona/eliminar";
     private String Detalle = "sgda/persona/detalle";
+    private String Mensaje;
     
     @Autowired
     private IPersonaServicio servicioPersona;
@@ -52,20 +55,19 @@ public class PersonaControlador {
     }
     
     @PostMapping("/guardar")   
-    public String GuardarPersona(Persona persona,BindingResult result,Model model){
-        model.addAttribute("titulo","Listar Persona");
+    public String GuardarPersona(Persona persona,BindingResult result,/*Model model,*/RedirectAttributes attributes){
+        Mensaje="Usuario Guardado Exitosamente";
         
         if(result.hasErrors()){
             for(ObjectError error: result.getAllErrors()){
                 System.out.println("Ocurrio Un Error:"+error.getDefaultMessage());
             }
-            return "sgda/persona/crear";
+            return Formulario;
         }
         //Configurar de String a Date
         servicioPersona.guardar(persona);
         System.out.println("Usuarios:"+persona);
-        //return "sgda/persona/listpersona";
-        
+        attributes.addFlashAttribute("msg", Mensaje);
         return "redirect:/persona/listar";
     }
     
@@ -94,13 +96,29 @@ public class PersonaControlador {
     
     @GetMapping("/editar/{ID}")
     public String EditarPersona(@PathVariable("ID") int ID_PERSONA, Model model) {
-        Persona persona = servicioPersona.buscarIdPersona(ID_PERSONA);
-        System.out.println("Editar Persona: " + persona);
         model.addAttribute("titulo","Editar Persona");
         model.addAttribute("link","/persona/detalle/"+ID_PERSONA);
         
+        Persona persona = servicioPersona.buscarIdPersona(ID_PERSONA);
+        
+        System.out.println("Editar Persona: " + persona);
         model.addAttribute("persona", persona);
         return Formulario;
+    }
+    
+        //@RequestMapping(value = "/modificar", method=RequestMethod.POST)
+    //RequestParam
+    @PostMapping("/modificar")
+    public String ModificarUsuario(@RequestParam("ID") int ID_PERSONA, Model model){
+        model.addAttribute("titulo"," Modificar Usuario");
+        //model.addAttribute("link","/persona/modificar");
+        model.addAttribute("link","/persona/listar");
+        
+        Persona persona = servicioPersona.buscarIdPersona(ID_PERSONA);
+
+        System.out.println("ID PathVariable: " + ID_PERSONA);
+        model.addAttribute("persona", persona);
+        return Editar;
     }
     
     
