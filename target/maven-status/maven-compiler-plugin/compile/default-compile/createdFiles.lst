@@ -1,9 +1,15 @@
 net\sgda\controlador\LoginControlador.class
 net\sgda\modelo\Usuario.class
+net\sgda\servicio\CategoriaServicioImpl.class
+net\sgda\controlador\CategoriaControlador.class
+net\sgda\controlador\SubCategoriaControlador.class
 net\sgda\controlador\PersonaControlador.class
+net\sgda\modelo\Categoria.class
 net\sgda\servicio\IUsuarioServicio.class
 net\sgda\ProyectosgdaApplication.class
+net\sgda\modelo\SubCategoria.class
 net\sgda\modelo\Persona.class
+net\sgda\servicio\ICategoriaServicio.class
 net\sgda\servicio\UsuarioServicioImpl.class
 net\sgda\servicio\IPersonaServicio.class
 net\sgda\controlador\UsuarioControlador.class

@@ -42,10 +42,31 @@
                 </section>
                 <!-- End Barra -->
                 
+                
+                <!--div th:if="${#fields.hasErrors('*')}" class="alert alert-warning alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <h5><i class="icon fas fa-exclamation-triangle"></i> Error</h5>
+                            <ul>
+                                <li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+                            </ul>
+                </div-->
+                
+                
                 <!-- Contenido -->
                 <section class="content">
-                    <form th:action="@{/persona/guardar}" role="form" method="POST" th:object="${usuario}">
-                        <input type="hidden" name="ESTADO" value="1" id="ESTADO">
+                    <form th:action="@{/persona/guardar}" role="form" method="POST" th:object="${persona}">
+
+                        <input type="hidden" th:field="*{ESTADO}" th:value="true" id="ESTADO">
+                        
+                        <!--div th:if="${#fields.hasErrors('*')}" class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            Por favor corrija los siguientes errores:
+                            <ul>
+                                <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+                            </ul>
+                        </div-->
+                        
+                        
                         <div class="row">
                             <div class="col-xl-12 col-md-12 mb-12">
 
@@ -66,19 +87,29 @@
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
                                                             <label for="id_nombre">Nombre:</label>
-                                                            <input type="text" name="NOMBRE"  placeholder="Nombre" maxlength="50" class="form-control" id="NOMBRE" required="required">
+                                                            <input type="text" th:field="*{NOMBRE}" placeholder="Nombre" id="nombre" maxlength="50" class="form-control" th:errorclass="errorfield">
+                                                            <div class="errorblock" th:if="${#fields.hasErrors('NOMBRE')}">
+                                                                <span class="helptext" th:errors="*{NOMBRE}" />
+                                                            </div>
+                                                      
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
                                                             <label for="id_paterno">Apellido Paterno:</label>
-                                                            <input type="text" name="PATERNO"  placeholder="Apellido Paterno" maxlength="50" class="form-control" id="PATERNO" required="required">
+                                                            <input type="text" th:field="*{PATERNO}" placeholder="Apellido Paterno" maxlength="50" class="form-control" id="PATERNO" th:errorclass="errorfield">
+                                                            <div class="errorblock" th:if="${#fields.hasErrors('PATERNO')}">
+                                                                <span class="helptext" th:errors="*{PATERNO}" />
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
                                                             <label for="id_materno">Apellido Materno:</label>
-                                                            <input type="text" name="MATERNO"  placeholder="Apellido Materno" maxlength="50" class="form-control" id="MATERNO" required="required">
+                                                            <input type="text" th:field="*{MATERNO}" placeholder="Apellido Materno" maxlength="50" class="form-control" id="MATERNO" th:errorclass="errorfield">
+                                                            <div class="errorblock" th:if="${#fields.hasErrors('MATERNO')}">
+                                                                <span class="helptext" th:errors="*{MATERNO}" />
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -87,24 +118,34 @@
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
                                                             <label for="id_ci">Numero CI:</label>
-                                                            <input type="text" name="CI"  placeholder="Numero Cedula de Identidad" maxlength="50" class="form-control" id="CI" required="required">
+                                                            <input type="text" th:field="*{CI}" placeholder="Numero Cedula de Identidad" maxlength="50" class="form-control" id="CI" th:errorclass="errorfield">
+                                                              
+                                                            <div class="errorblock" th:if="${#fields.hasErrors('CI')}">
+                                                                <span class="helptext" th:errors="*{CI}" />
+                                                            </div>
+                                                            
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
                                                             <label for="id_nacimiento">Fecha de Nacimiento</label>
-                                                            <input type="text" name="NACIMIENTO"  placeholder="Fecha de Nacimiento" class="form-control" id="NACIMIENTO">
+                                                            <input type="text" th:field="*{NACIMIENTO}" placeholder="Fecha de Nacimiento" class="form-control" id="NACIMIENTO" th:errorclass="errorfield">
+                                                            <!-- errorfield -->
+                                                            <div class="errorblock" th:if="${#fields.hasErrors('NACIMIENTO')}">
+                                                                <span class="helptext" th:errors="*{NACIMIENTO}" />
+                                                            </div>
+                                                            
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-4">
                                                         <div class="form-group">
                                                             <label for="id_sexo">Sexo</label>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="SEXO"  id="estado" value="1" checked="checked">
+                                                                <input class="form-check-input" type="radio" th:field="*{SEXO}" id="sexo" value="1" checked="checked">
                                                                 <label class="form-check-label" for="destacado1">Hombre</label>
                                                             </div>
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="SEXO"  id="estado" value="0">
+                                                                <input class="form-check-input" type="radio" th:field="*{SEXO}"  id="sexo" value="0">
                                                                 <label class="form-check-label" for="destacado2">Mujer</label>
                                                             </div>
                                                         </div>
@@ -127,6 +168,7 @@
                                 
                             </div>
                         </div>
+                        
                     </form>
                 </section>
                 <!-- End Contenido -->
@@ -154,6 +196,22 @@
             });
         });
         </script>
-       
+       <style type="text/css">
+            .errorfield { 
+                color: #ae1d1d; 
+                font-style: italic;
+                font-weight: bold;
+                border: 1px solid #ff0000;
+            }
+
+            .errorblock{
+                color: #000;
+                background-color: #ffEEEE;
+                border: 1px solid #ff0000;
+                padding: 8px;
+                margin: 16px;
+                font-style: italic;
+            }
+        </style>
     </body>
 </html>

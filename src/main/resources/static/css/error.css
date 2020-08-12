@@ -1,0 +1,24 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11-ago-2020, 18:54:36
+    Author     : Acer
+*/
+.errorfield { 
+    color: #ae1d1d; 
+    font-style: italic;
+    font-weight: bold;
+    border: 1px solid #ff0000;
+}
+
+.errorblock{
+    color: #000;
+    background-color: #ffEEEE;
+    border: 1px solid #ff0000;
+    padding: 8px;
+    margin: 16px;
+    font-style: italic;
+}

@@ -44,7 +44,7 @@
 
                 <!-- Contenido -->
                 <section class="content">
-                    <form th:action="@{/usuario/guardar}" role="form" method="POST">
+                    <form th:action="@{/usuario/guardar}" role="form" method="POST" th:object="${usuario}">
                         <div class="row">
                             <div class="col-xl-12 col-md-12 mb-12">
 

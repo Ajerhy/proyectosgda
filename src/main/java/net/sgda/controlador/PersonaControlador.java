@@ -3,6 +3,7 @@ package net.sgda.controlador;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import javax.validation.Valid;
 import net.sgda.modelo.Persona;
 import net.sgda.servicio.IPersonaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,11 +53,16 @@ public class PersonaControlador {
     public String CrearPersona(Model model){
         model.addAttribute("titulo","Crear Persona");
         model.addAttribute("link","/persona/crear");
+        
+        model.addAttribute("persona", new Persona());
+        
         return Formulario;
     }
     
-    @PostMapping("/guardar")   
-    public String GuardarPersona(Persona persona,BindingResult result,/*Model model,*/RedirectAttributes attributes){
+    //@PostMapping("/guardar")
+    @RequestMapping(value="/guardar", method=RequestMethod.POST)
+    public String GuardarPersona(@ModelAttribute Persona persona,BindingResult result,RedirectAttributes attributes){
+        /*@Valid, Model model,*/
         Mensaje="Usuario Guardado Exitosamente";
         
         if(result.hasErrors()){
@@ -67,6 +74,10 @@ public class PersonaControlador {
         //Configurar de String a Date
         servicioPersona.guardar(persona);
         System.out.println("Usuarios:"+persona);
+        
+        //redirectAttrs
+        //        .addFlashAttribute("mensaje", "Editado correctamente")
+        //        .addFlashAttribute("clase", "success");
         attributes.addFlashAttribute("msg", Mensaje);
         return "redirect:/persona/listar";
     }
