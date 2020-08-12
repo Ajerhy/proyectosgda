@@ -1,4 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: net.sgda.ProyectosgdaApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.117 s - in net.sgda.ProyectosgdaApplicationTests
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.778 s <<< FAILURE! - in net.sgda.ProyectosgdaApplicationTests
+net.sgda.ProyectosgdaApplicationTests  Time elapsed: 1.776 s  <<< ERROR!
+java.lang.IllegalStateException: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration or @SpringBootTest(classes=...) with your test
+

@@ -3,6 +3,7 @@ package net.sgda.controlador;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import net.sgda.util.Utileria;
 
 import net.sgda.modelo.Usuario;
 import net.sgda.servicio.IUsuarioServicio;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -79,6 +81,43 @@ public class UsuarioControlador {
         //attributes.addFlashAttribute("msg", Mensaje);
         return "redirect:/usuario/listar";
     }
+    
+    @PostMapping("/archivo")
+    public String ArchivoUsuario(Usuario usuario, 
+            BindingResult result, 
+            RedirectAttributes attributes, 
+            @RequestParam("IMAGEN") MultipartFile multipart){
+        
+        Mensaje="Usuario Guardado Exitosamente";
+        //Configurar de String a Date
+        if (result.hasErrors()) {
+            for(ObjectError error: result.getAllErrors()){
+                System.out.println("Ocurrio Un Error:"+error.getDefaultMessage());
+            }
+            return Formulario;
+        }
+        
+        if (!multipart.isEmpty()) {
+            //String ruta = "/Desarrollo/Java/proyectosgda/src/main/resourcesL/static/img"; //Linux
+            //String ruta = "d:/Desarrollo/Java/proyectosgda/src/main/resourcesL/static/img/"; //Windows
+            String ruta = "c:/proyectosgda/img/";
+            String nombreImagen = Utileria.guardarArchivo(multipart,ruta);
+            if (nombreImagen != null) { //Se Subio la Imagem
+                usuario.setIMAGEN(nombreImagen);
+            }
+
+        }
+        
+        //servicioUsuario.guardar(usuario);
+        System.out.println("Usuarios:"+usuario);
+                attributes
+                .addFlashAttribute("msg", Mensaje)
+                .addFlashAttribute("tag", "alert alert-success alert-dismissible");
+        //attributes.addFlashAttribute("msg", Mensaje);
+        return "redirect:/usuario/listar";
+    }
+    
+    
     
     //@RequestMapping(value = "/eliminar/{ID}", method=RequestMethod.POST)
     @GetMapping("/eliminar/{ID}")

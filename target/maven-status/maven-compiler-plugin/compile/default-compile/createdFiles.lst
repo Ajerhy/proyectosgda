@@ -6,13 +6,14 @@ net\sgda\controlador\SubCategoriaControlador.class
 net\sgda\controlador\PersonaControlador.class
 net\sgda\modelo\Categoria.class
 net\sgda\servicio\IUsuarioServicio.class
-net\sgda\ProyectosgdaApplication.class
 net\sgda\servicio\ISubCategoriaServicio.class
 net\sgda\modelo\SubCategoria.class
 net\sgda\modelo\Persona.class
+net\sgda\servicio\SubCategoriaServicioImpl.class
 net\sgda\servicio\ICategoriaServicio.class
 net\sgda\servicio\UsuarioServicioImpl.class
 net\sgda\servicio\IPersonaServicio.class
 net\sgda\controlador\UsuarioControlador.class
 net\sgda\controlador\HomeController.class
+net\sgda\util\Utileria.class
 net\sgda\servicio\PersonaServicioImpl.class

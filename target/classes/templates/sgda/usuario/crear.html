@@ -51,7 +51,8 @@
                 
                 <!-- Contenido -->
                 <section class="content">
-                    <form th:action="@{/usuario/guardar}" role="form" method="POST" th:object="${usuario}">
+                    <!--form th:action="@{/usuario/guardar}" enctype="multipart/form-data" role="form" method="POST" th:object="${usuario}"-->
+                    <form th:action="@{/usuario/archivo}" role="form" method="POST" th:object="${usuario}" enctype="multipart/form-data">   
                         <div class="row">
                             <div class="col-xl-12 col-md-12 mb-12">
 
@@ -97,6 +98,9 @@
                                                             <label for="id_imagen">Imagen</label>
                                                             <!--name="IMAGEN"-->
                                                             <input type="file" class="form-control-file" th:field="*{IMAGEN}" id="IMAGEN">
+                                                            <div class="errorblock" th:if="${#fields.hasErrors('IMAGEN')}">
+                                                                <span class="helptext" th:errors="*{IMAGEN}" />
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-6">
