@@ -73,7 +73,7 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Nombre</th>
-                                                <th>Sigla</th>
+                                                <th>Categoria</th>
                                                 <th>Fecha</th>
                                                 <th>Estado</th>
                                                 <th>Acciones</th>
@@ -81,18 +81,18 @@
                                         </thead>
                                         <tbody>
                                             
-                                            <tr th:if="${categorias.empty}">
+                                            <tr th:if="${subcategorias.empty}">
                                                 <td colspan="3">No Hay SubCategoria</td>
                                             </tr>
-                                            <tr th:each="categoria : ${categorias}">
-                                                <td th:text="${categoria.ID_CATEGORIA}"></td>
-                                                <td th:text="${categoria.NOMBRE}"></td>
-                                                <td th:text="${categoria.SIGLA}"></td>
-                                                <td th:text="${#dates.format(categoria.REGISTRO, 'dd/MM/yyyy')}"></td>
+                                            <tr th:each="subcategoria : ${subcategorias}">
+                                                <td th:text="${subcategoria.id_subcategoria}"></td>
+                                                <td th:text="${subcategoria.nombre}"></td>
+                                                <td th:text="${subcategoria.categoria}"></td>
+                                                <td th:text="${#dates.format(subcategoria.registro, 'dd/MM/yyyy')}"></td>
 
                                                 <td class="text-center">
-                                                    <span th:if="${categoria.ESTADO==true}" class="badge badge-success">Activo</span>
-                                                    <span th:unless="${categoria.ESTADO==true}" class="badge badge-danger">Inactivo</span>
+                                                    <span th:if="${subcategoria.estado==true}" class="badge badge-success">Activo</span>
+                                                    <span th:unless="${subcategoria.estado==true}" class="badge badge-danger">Inactivo</span>
                                                 </td>
                                                 
                                                 <td class="text-center">
@@ -104,17 +104,17 @@
                                                         </button>
                                                         <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(68px, 38px, 0px);">
                                            
-                                                            <a class="dropdown-item" th:href="@{/categoria/detalle/{ID} (ID=${categoria.ID_CATEGORIA})}" data-toggle="tooltip" data-placement="left" title="Detalle"> 
+                                                            <a class="dropdown-item" th:href="@{/categoria/detalle/{ID} (ID=${subcategoria.id_subcategoria})}" data-toggle="tooltip" data-placement="left" title="Detalle"> 
                                                                 <i class="glyphicon glyphicon-eye-open"></i> 
                                                                 Detalle
                                                             </a>
                                                             
-                                                            <a class="dropdown-item" th:href="@{/categoria/editar/{ID} (ID=${categoria.ID_CATEGORIA})}" data-toggle="tooltip" data-placement="left" title="Editar">
+                                                            <a class="dropdown-item" th:href="@{/categoria/editar/{ID} (ID=${subcategoria.id_subcategoria})}" data-toggle="tooltip" data-placement="left" title="Editar">
                                                                 <i class="glyphicon glyphicon-eye-close"></i> 
                                                                 Editar
                                                             </a>
                                                             
-                                                            <a class="dropdown-item" th:href="@{/categoria/eliminar/{ID} (ID=${categoria.ID_CATEGORIA})}" data-toggle="tooltip" data-placement="left" title="Eliminar">
+                                                            <a class="dropdown-item" th:href="@{/categoria/eliminar/{ID} (ID=${subcategoria.id_subcategoria})}" data-toggle="tooltip" data-placement="left" title="Eliminar">
                                                                 <i class="glyphicon glyphicon-trash"></i> 
                                                                 Eliminar
                                                             </a>

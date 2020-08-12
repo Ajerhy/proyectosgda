@@ -44,8 +44,9 @@
                     
                     <!-- Contenido -->
                     <section class="content">
-                       <form th:action="@{/categoria/guardar}" role="form" method="POST">
-                            <div class="row">
+                       <form th:action="@{/sub/categoria/guardar}" role="form" method="POST" th:object="${subcategoria}">
+                           
+                           <div class="row">
                                 <div class="col-xl-12 col-md-12 mb-12">
 
                                     <div class="card card-default">
@@ -65,32 +66,48 @@
                                                         <div class="col-12 col-md-4">
                                                             <div class="form-group">
                                                                 <label for="id_nombre">Nombre:</label>
-                                                                <input type="text" name="NOMBRE" placeholder="Nombre" maxlength="50" class="form-control" required>
-                                                                <div class="invalid-feedback">
-                                                                    Ingrese un mensaje en el Nombre
+                                                                <input type="text" th:field="*{nombre}" placeholder="Nombre" maxlength="50" class="form-control" th:errorclass="errorfield">
+                                                                <div class="errorblock" th:if="${#fields.hasErrors('nombre')}">
+                                                                    <span class="helptext" th:errors="*{nombre}" />
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                                                                                
                                                         <div class="col-12 col-md-4">
                                                             <div class="form-group">
-                                                                <label for="id_sigla">Sigla:</label>
-                                                                <input type="text" name="SIGLA" placeholder="Sigla" maxlength="50" class="form-control"  required>
+                                                                <label for="id_categoria">Categoria</label>
+                                                                <!--th:field="*{categoria.id}" -->
+                                                                <select class="form-control" th:field="*{categoria.ID_CATEGORIA}">
+                                                                    <option th:each="categoria : ${categorias}" 
+                                                                            th:value="${categoria.ID_CATEGORIA}" 
+                                                                            th:text="${categoria.NOMBRE}">
+                                                                    </option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                         
+                                                        <div class="col-12 col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="id_sigla">Registro</label>
+                                                                <input type="text" th:field="*{registro}" placeholder="Registro" id="registro" class="form-control" th:errorclass="errorfield">
+                                                                <div class="errorblock" th:if="${#fields.hasErrors('registro')}">
+                                                                <span class="helptext" th:errors="*{registro}" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         
                                                     </div>
                                                     
                                                     
                                                     <div class="form-group">
-                                                        <label for="id_descripcion">Estado</label>
+                                                        <label for="id_estado">Estado</label>
                                                         <div class="form-check">
                                                             <!--label class="form-check-label" for="destacado0"></label><br-->
-                                                            <input class="form-check-input" type="radio" name="ESTADO" id="estado" value="1" checked="checked">
+                                                            <input class="form-check-input" type="radio" name="estado" id="estado" value="1" checked="checked">
                                                             <label class="form-check-label" for="destacado1">Activo</label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="ESTADO" id="estado" value="0">
+                                                            <input class="form-check-input" type="radio" name="estado" id="estado" value="0">
                                                             <label class="form-check-label" for="destacado2">Inactivo</label>
                                                         </div>
                                                         <!--th:field="*{destacado}"-->
@@ -104,7 +121,7 @@
                                         <!-- Botones -->
                                         <div class="card-footer">
                                             <button type="submit" class="btn btn-danger"><span class="fa fa-save"></span> Guardar</button>
-                                            <a th:href="@{/categoria/listar}" class="btn btn-success"><i class="far fa-hand-point-left"></i> Cancelar</a>
+                                            <a th:href="@{/sub/categoria/listar}" class="btn btn-success"><i class="far fa-hand-point-left"></i> Cancelar</a>
                                             <!--button type="reset" class="btn btn-success"><i class="far fa-hand-point-left"></i> Cancelar</button-->
                                         </div>
                                         <!-- Fin Botones -->
@@ -126,7 +143,32 @@
             </div>
         
             <div th:replace="base/dashboard :: js"></div>
-            
+            <script>
+        $(function () {
+            $("#registro").datepicker({
+                language: 'es',
+                /*format: 'yyyy-mm-dd',*/
+                format: 'dd-mm-yyyy',
+            });
+        });
+        </script>
+       <style type="text/css">
+            .errorfield { 
+                color: #ae1d1d; 
+                font-style: italic;
+                font-weight: bold;
+                border: 1px solid #ff0000;
+            }
+
+            .errorblock{
+                color: #000;
+                background-color: #ffEEEE;
+                border: 1px solid #ff0000;
+                padding: 8px;
+                margin: 16px;
+                font-style: italic;
+            }
+        </style>
     </body>
     
 </html>

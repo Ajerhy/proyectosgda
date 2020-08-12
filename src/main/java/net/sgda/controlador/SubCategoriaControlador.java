@@ -3,7 +3,9 @@ package net.sgda.controlador;
 
 import java.util.List;
 import net.sgda.modelo.Categoria;
+import net.sgda.modelo.SubCategoria;
 import net.sgda.servicio.ICategoriaServicio;
+import net.sgda.servicio.ISubCategoriaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,8 +28,13 @@ public class SubCategoriaControlador {
     private String Eliminar = "sgda/subcategoria/eliminar";
     private String Mensaje;
     
-        @Autowired
+    @Autowired
+    private ISubCategoriaServicio servicioSubCategoria;
+    
+    @Autowired
     private ICategoriaServicio servicioCategoria;
+    
+    
     
     //@RequestMapping(value = "/listar",method = RequestMethod.GET)
     @GetMapping("/listar")
@@ -35,8 +42,8 @@ public class SubCategoriaControlador {
         model.addAttribute("titulo","Listar Sub Categoria");
         model.addAttribute("link","/sub/categoria/listar");
         
-        List<Categoria> lista = servicioCategoria.buscarTodos();
-        model.addAttribute("categorias",lista);
+        List<SubCategoria> lista = servicioSubCategoria.buscarTodos();
+        model.addAttribute("subcategorias",lista);
         
         return Listar;
     }
@@ -47,23 +54,25 @@ public class SubCategoriaControlador {
         model.addAttribute("titulo","Crear Sub Categoria");
         model.addAttribute("link","/sub/categoria/crear");
         
-        model.addAttribute("categoria", new Categoria());
+        model.addAttribute("subcategoria", new SubCategoria());
         
+        model.addAttribute("categorias",servicioCategoria.buscarTodos());
         return Formulario;
     }
     
     @PostMapping("/guardar")
-    public String GuardarCategoria(@ModelAttribute Categoria categoria,BindingResult result,RedirectAttributes attributes){
+    public String GuardarCategoria(@ModelAttribute SubCategoria subCategoria,BindingResult result,RedirectAttributes attributes){
         /*,Model model*/
         Mensaje="Sub Categoria Guardado Exitosamente";
+        /*
         if (result.hasErrors()) {
             for(ObjectError error: result.getAllErrors()){
                 System.out.println("Ocurrio Un Error:"+error.getDefaultMessage());
             }
             return Formulario;
         }
-        servicioCategoria.guardar(categoria);
-        System.out.println("Categorias:"+categoria);
+        servicioSubCategoria.guardar(subCategoria);
+        */System.out.println("Sub Categorias:"+subCategoria);
                 attributes
                 .addFlashAttribute("msg", Mensaje)
                 .addFlashAttribute("tag", "alert alert-success alert-dismissible");

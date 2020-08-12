@@ -10,7 +10,6 @@ net\sgda\ProyectosgdaApplication.class
 net\sgda\servicio\ISubCategoriaServicio.class
 net\sgda\modelo\SubCategoria.class
 net\sgda\modelo\Persona.class
-net\sgda\servicio\SubCategoriaServicioImpl.class
 net\sgda\servicio\ICategoriaServicio.class
 net\sgda\servicio\UsuarioServicioImpl.class
 net\sgda\servicio\IPersonaServicio.class

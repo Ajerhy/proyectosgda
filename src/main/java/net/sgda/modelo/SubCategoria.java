@@ -3,61 +3,64 @@ package net.sgda.modelo;
 import java.util.Date;
 
 public class SubCategoria{
-    private Integer ID_SUBCATEGORIA;
-    private Integer CATEGORIA;
-    private String NOMBRE;
-    private boolean ESTADO;
-    private Date REGISTRO;
-    private Date MODIFICACION;
+    private Integer id_subcategoria;
+    private Categoria categoria;
+    private String nombre;
+    private boolean estado;
+    private Date registro;
+    private Date modificacion;
 
-    public Integer getID_SUBCATEGORIA() {
-        return ID_SUBCATEGORIA;
+    public Integer getId_subcategoria() {
+        return id_subcategoria;
     }
 
-    public void setID_SUBCATEGORIA(Integer ID_SUBCATEGORIA) {
-        this.ID_SUBCATEGORIA = ID_SUBCATEGORIA;
+    public void setId_subcategoria(Integer id_subcategoria) {
+        this.id_subcategoria = id_subcategoria;
     }
 
-    public Integer getCATEGORIA() {
-        return CATEGORIA;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setCATEGORIA(Integer CATEGORIA) {
-        this.CATEGORIA = CATEGORIA;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
-    public String getNOMBRE() {
-        return NOMBRE;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNOMBRE(String NOMBRE) {
-        this.NOMBRE = NOMBRE;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public boolean isESTADO() {
-        return ESTADO;
+    public boolean isEstado() {
+        return estado;
     }
 
-    public void setESTADO(boolean ESTADO) {
-        this.ESTADO = ESTADO;
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 
-    public Date getREGISTRO() {
-        return REGISTRO;
+    public Date getRegistro() {
+        return registro;
     }
 
-    public void setREGISTRO(Date REGISTRO) {
-        this.REGISTRO = REGISTRO;
+    public void setRegistro(Date registro) {
+        this.registro = registro;
     }
 
-    public Date getMODIFICACION() {
-        return MODIFICACION;
+    public Date getModificacion() {
+        return modificacion;
     }
 
-    public void setMODIFICACION(Date MODIFICACION) {
-        this.MODIFICACION = MODIFICACION;
+    public void setModificacion(Date modificacion) {
+        this.modificacion = modificacion;
     }
 
-    
+    @Override
+    public String toString() {
+        return "SubCategoria{" + "id_subcategoria=" + id_subcategoria + ", categoria=" + categoria + ", nombre=" + nombre + ", estado=" + estado + ", registro=" + registro + ", modificacion=" + modificacion + '}';
+    }
     
 }
