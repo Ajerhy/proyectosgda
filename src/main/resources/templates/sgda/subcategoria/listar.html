@@ -43,21 +43,15 @@
                 </section>
                 <!-- End Barra -->
                 
-                <!-- Contenido -->
-                <!--div th:if="${Mensaje.empty}">
-                    <div class="badge badge-success">${Mensaje}</div>
-                </div-->
-                
                 <section class="content">
-                    <div class="alert alert-warning alert-dismissible">
+                    <div th:if="${msg != null}" class="alert alert-success alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
-                        Warning alert preview. This alert is dismissable.
+                        <h5><i class="icon fas fa-exclamation-triangle"></i> Informacion</h5>
+                        <div th:text="${msg}" role='alert'></div>
                     </div>
                 </section>
                 
-                
-                
+                <!-- Contenido -->
                 <section class="content">
                 <div class="row">
                     <div class="col-12">

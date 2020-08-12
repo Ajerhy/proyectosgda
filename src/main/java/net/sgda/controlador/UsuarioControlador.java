@@ -53,6 +53,9 @@ public class UsuarioControlador {
     public String CrearUsuario(Model model){
         model.addAttribute("titulo","Crear Usuario");
         model.addAttribute("link","/usuario/crear");
+        
+        model.addAttribute("usuario", new Usuario());
+        
         return Formulario;
     }
     
@@ -70,7 +73,10 @@ public class UsuarioControlador {
         }
         servicioUsuario.guardar(usuario);
         System.out.println("Usuarios:"+usuario);
-        attributes.addFlashAttribute("msg", Mensaje);
+                attributes
+                .addFlashAttribute("msg", Mensaje)
+                .addFlashAttribute("tag", "alert alert-success alert-dismissible");
+        //attributes.addFlashAttribute("msg", Mensaje);
         return "redirect:/usuario/listar";
     }
     

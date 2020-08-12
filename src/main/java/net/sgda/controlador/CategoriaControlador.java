@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -49,15 +50,16 @@ public class CategoriaControlador {
         model.addAttribute("titulo","Crear Categoria");
         model.addAttribute("link","/categoria/crear");
         
+        model.addAttribute("categoria", new Categoria());
+        
         return Formulario;
     }
     
     //@GetMapping("/guardar")
     @RequestMapping(value = "/guardar",method = RequestMethod.POST)
-    public String GuardarCategoria(Categoria categoria,BindingResult result/*,Model model*/,RedirectAttributes attributes){
+    public String GuardarCategoria(@ModelAttribute Categoria categoria,BindingResult result,RedirectAttributes attributes){
+        /*,Model model*/
         Mensaje="Categoria Guardado Exitosamente";
-        //model.addAttribute("titulo","Listar Categoria");
-        //model.addAttribute("link","/categoria/listar");
         if (result.hasErrors()) {
             for(ObjectError error: result.getAllErrors()){
                 System.out.println("Ocurrio Un Error:"+error.getDefaultMessage());
@@ -66,7 +68,10 @@ public class CategoriaControlador {
         }
         servicioCategoria.guardar(categoria);
         System.out.println("Categorias:"+categoria);
-        attributes.addFlashAttribute("msg", Mensaje);
+        attributes
+                .addFlashAttribute("msg", Mensaje)
+                .addFlashAttribute("tag", "alert alert-success alert-dismissible");
+        //attributes.addFlashAttribute("msg", Mensaje);
         return "redirect:/categoria/listar";
     }
 

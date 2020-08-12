@@ -42,7 +42,6 @@
                 </section>
                 <!-- End Barra -->
                 
-                
                 <!--div th:if="${#fields.hasErrors('*')}" class="alert alert-warning alert-dismissible" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                             <h5><i class="icon fas fa-exclamation-triangle"></i> Error</h5>
@@ -51,12 +50,11 @@
                             </ul>
                 </div-->
                 
-                
                 <!-- Contenido -->
                 <section class="content">
                     <form th:action="@{/persona/guardar}" role="form" method="POST" th:object="${persona}">
-
-                        <input type="hidden" th:field="*{ESTADO}" th:value="true" id="ESTADO">
+                        <!--th:field="*{ESTADO}"-->
+                        <input type="hidden" value="1" name="ESTADO">
                         
                         <!--div th:if="${#fields.hasErrors('*')}" class="alert alert-danger alert-dismissible" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -91,7 +89,6 @@
                                                             <div class="errorblock" th:if="${#fields.hasErrors('NOMBRE')}">
                                                                 <span class="helptext" th:errors="*{NOMBRE}" />
                                                             </div>
-                                                      
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-4">

@@ -75,10 +75,10 @@ public class PersonaControlador {
         servicioPersona.guardar(persona);
         System.out.println("Usuarios:"+persona);
         
-        //redirectAttrs
-        //        .addFlashAttribute("mensaje", "Editado correctamente")
-        //        .addFlashAttribute("clase", "success");
-        attributes.addFlashAttribute("msg", Mensaje);
+        attributes
+                .addFlashAttribute("msg", Mensaje)
+                .addFlashAttribute("tag", "alert alert-success alert-dismissible");
+        //attributes.addFlashAttribute("msg", Mensaje);
         return "redirect:/persona/listar";
     }
     
@@ -117,7 +117,11 @@ public class PersonaControlador {
         return Formulario;
     }
     
-        //@RequestMapping(value = "/modificar", method=RequestMethod.POST)
+
+    
+    
+    
+    //@RequestMapping(value = "/modificar", method=RequestMethod.POST)
     //RequestParam
     @PostMapping("/modificar")
     public String ModificarUsuario(@RequestParam("ID") int ID_PERSONA, Model model){
@@ -132,6 +136,20 @@ public class PersonaControlador {
         return Editar;
     }
     
+    @PostMapping("/editar")
+    public String actualizarPersona(@ModelAttribute Persona persona, RedirectAttributes attributes) {
+        /*@Valid, Model model,*/
+        Mensaje="Usuario Actualizado Exitosamente";
+        //productosRepository.save(producto);
+        attributes
+                .addFlashAttribute("msg", Mensaje)
+                .addFlashAttribute("tag", "alert alert-info alert-dismissible");
+        return "redirect:/persona/listar";
+    }
+    
+    
+    
+    
     
     @RequestMapping(value = "/modalpersona", method=RequestMethod.GET)
     public String ModalPersona(Model model){
@@ -139,11 +157,7 @@ public class PersonaControlador {
         model.addAttribute("link","/persona/form");
         return "sgda/persona/form";
     }
-    
-    
-    
-    
-    
+
     @InitBinder
     public void initBinder(WebDataBinder webDataBinder){
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");

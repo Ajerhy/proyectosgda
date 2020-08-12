@@ -40,8 +40,15 @@
                     </div>
                 </section>
                 <!-- End Barra -->
-
-
+                
+                <!--div th:if="${#fields.hasErrors('*')}" class="alert alert-warning alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <h5><i class="icon fas fa-exclamation-triangle"></i> Error</h5>
+                            <ul>
+                                <li th:each="err : ${#fields.errors('*')}" th:text="${err}" />
+                            </ul>
+                </div-->
+                
                 <!-- Contenido -->
                 <section class="content">
                     <form th:action="@{/usuario/guardar}" role="form" method="POST" th:object="${usuario}">
@@ -65,13 +72,21 @@
                                                     <div class="col-12 col-md-6">
                                                         <div class="form-group">
                                                             <label for="id_usuario">Usuario:</label>
-                                                            <input type="text" name="USUARIO" placeholder="Usuario" maxlength="50" class="form-control" required autocomplete="off"/>
+                                                            <!--name="USUARIO"-->
+                                                            <input type="text" th:field="*{USUARIO}" placeholder="Usuario" maxlength="50" class="form-control" th:errorclass="errorfield" required autocomplete="off"/>
+                                                            <div class="errorblock" th:if="${#fields.hasErrors('USUARIO')}">
+                                                                <span class="helptext" th:errors="*{USUARIO}" />
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-6">
                                                         <div class="form-group">
                                                             <label for="id_clave">Password:</label>
-                                                            <input type="password" name="CLAVE" placeholder="Password" maxlength="50" class="form-control" required autocomplete="off"/>
+                                                            <!--name="CLAVE"-->
+                                                            <input type="password" th:field="*{CLAVE}" placeholder="Password" maxlength="50" class="form-control" th:errorclass="errorfield" required autocomplete="off"/>
+                                                            <div class="errorblock" th:if="${#fields.hasErrors('CLAVE')}">
+                                                                <span class="helptext" th:errors="*{CLAVE}" />
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -80,14 +95,15 @@
                                                     <div class="col-12 col-md-6">
                                                         <div class="form-group">
                                                             <label for="id_imagen">Imagen</label>
-                                                            <input type="file" class="form-control-file" name="IMAGEN" id="IMAGEN">
+                                                            <!--name="IMAGEN"-->
+                                                            <input type="file" class="form-control-file" th:field="*{IMAGEN}" id="IMAGEN">
                                                         </div>
                                                     </div>
                                                     <div class="col-12 col-md-6">
                                                         <div class="form-group">
-                                                            <label for="detalles"><strong>Detalle</strong></label>
-                                                            <!--th:field="*{detalles}"-->
-                                                            <textarea class="form-control" name="DETALLE" id="detalles" rows="7"></textarea>
+                                                            <label for="detalle"><strong>Detalle</strong></label>
+                                                            <!--name="DETALLE"-->
+                                                            <textarea class="form-control" th:field="*{DETALLE}" id="detalles" rows="7"></textarea>
                                                         </div> 
                                                     </div>
                                                 </div>
@@ -136,7 +152,23 @@
         </div>
 
         <div th:replace="base/dashboard :: js"></div>
+        <style type="text/css">
+            .errorfield { 
+                color: #ae1d1d; 
+                font-style: italic;
+                font-weight: bold;
+                border: 1px solid #ff0000;
+            }
 
+            .errorblock{
+                color: #000;
+                background-color: #ffEEEE;
+                border: 1px solid #ff0000;
+                padding: 8px;
+                margin: 16px;
+                font-style: italic;
+            }
+        </style>
     </body>
     
 </html>
