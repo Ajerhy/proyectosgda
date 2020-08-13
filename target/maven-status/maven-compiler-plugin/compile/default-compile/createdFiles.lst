@@ -6,6 +6,7 @@ net\sgda\controlador\SubCategoriaControlador.class
 net\sgda\controlador\PersonaControlador.class
 net\sgda\modelo\Categoria.class
 net\sgda\servicio\IUsuarioServicio.class
+net\sgda\ProyectosgdaApplication.class
 net\sgda\servicio\ISubCategoriaServicio.class
 net\sgda\modelo\SubCategoria.class
 net\sgda\modelo\Persona.class
