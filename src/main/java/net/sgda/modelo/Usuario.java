@@ -8,6 +8,8 @@ public class Usuario {
     private String CLAVE;
     private boolean ESTADO;
     private String IMAGEN="no-image.png";
+    //private MultipartFile file
+    
     private String DETALLE;
     
     private Date REGISTRO;

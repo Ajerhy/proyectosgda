@@ -16,7 +16,7 @@ public class Utileria {
             //Guardamos fisicamente el archivo en HD.
             multiPart.transferTo(imageFile);
             return nombreOriginal;
-        } catch (IOException e) {
+        } catch (IOException |IllegalStateException e) {
             System.out.println("Error " + e.getMessage());
             return null;
         }

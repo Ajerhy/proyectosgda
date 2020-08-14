@@ -16,6 +16,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +35,7 @@ public class UsuarioControlador {
     private String Detalle = "sgda/usuario/detalle";
     private String Eliminar = "sgda/usuario/eliminar";
     private String Mensaje;
-    
+    	
     //Metodos de ServicioImpl
     @Autowired
     private IUsuarioServicio servicioUsuario;
@@ -66,6 +67,7 @@ public class UsuarioControlador {
     @PostMapping("/guardar")   
     public String GuardarUsuario(Usuario usuario,BindingResult result/*,Model model*/,RedirectAttributes attributes){
         Mensaje="Usuario Guardado Exitosamente";
+        
         //Configurar de String a Date
         if (result.hasErrors()) {
             for(ObjectError error: result.getAllErrors()){
@@ -83,11 +85,12 @@ public class UsuarioControlador {
     }
     
     @PostMapping("/archivo")
-    public String ArchivoUsuario(Usuario usuario, 
+    public String ArchivoUsuario(
+            @ModelAttribute("usuario") Usuario usuario, 
             BindingResult result, 
             RedirectAttributes attributes, 
             @RequestParam("IMAGEN") MultipartFile multipart){
-        
+        System.out.println("Archivo:"+multipart);
         Mensaje="Usuario Guardado Exitosamente";
         //Configurar de String a Date
         if (result.hasErrors()) {
@@ -105,9 +108,7 @@ public class UsuarioControlador {
             if (nombreImagen != null) { //Se Subio la Imagem
                 usuario.setIMAGEN(nombreImagen);
             }
-
         }
-        
         //servicioUsuario.guardar(usuario);
         System.out.println("Usuarios:"+usuario);
                 attributes
