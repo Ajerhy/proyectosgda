@@ -52,3 +52,20 @@ update the maven proyecto
 
 Tabulacion de NetBeans
 Alt+ Shift+F
+
+Corregir 
+JDK jdk1.8.0_271
+JRE 8.0_271
+
+Actualizar Maven
+Netbeantsy Variable de entorno
+
+NETBEANS
+C:\Program Files\NetBeans 8.0.2\etc
+netbeans.conf
+Linea 46
+*Antes*
+netbeans_default_options="-J-client -J-Xss2m -J-Xms32m -J-XX:PermSize=32m -J-Dapple.laf.useScreenMenuBar=true -J-Dapple.awt.graphics.UseQuartz=true -J-Dsun.java2d.noddraw=true -J-Dsun.java2d.dpiaware=true -J-Dsun.zip.disableMemoryMapping=true"
+*Ahora*
+-J-Djdk.lang.Process.allowAmbiguousCommands=true
+netbeans_default_options="-J-Djdk.lang.Process.allowAmbiguousCommands=true -J-client -J-Xss2m -J-Xms32m -J-XX:PermSize=32m -J-Dapple.laf.useScreenMenuBar=true -J-Dapple.awt.graphics.UseQuartz=true -J-Dsun.java2d.noddraw=true -J-Dsun.java2d.dpiaware=true -J-Dsun.zip.disableMemoryMapping=true"
