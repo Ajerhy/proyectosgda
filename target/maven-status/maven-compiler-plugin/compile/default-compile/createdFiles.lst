@@ -4,6 +4,7 @@ net\sgda\servicio\CategoriaServicioImpl.class
 net\sgda\controlador\CategoriaControlador.class
 net\sgda\controlador\SubCategoriaControlador.class
 net\sgda\controlador\PersonaControlador.class
+net\sgda\util\IdentificadorGlobal.class
 net\sgda\modelo\Categoria.class
 net\sgda\servicio\IUsuarioServicio.class
 net\sgda\ProyectosgdaApplication.class

@@ -51,8 +51,14 @@
                 
                 <!-- Contenido -->
                 <section class="content">
-                    <!--form th:action="@{/usuario/guardar}" enctype="multipart/form-data" role="form" method="POST" th:object="${usuario}"-->
+                    <!--
+                    <form th:action="@{/usuario/guardar}" enctype="multipart/form-data" role="form" method="POST" th:object="${usuario}">
+                    
                     <form th:action="@{/usuario/archivo}" role="form" method="POST" th:object="${usuario}" enctype="multipart/form-data">   
+                    -->
+                    <form th:action="@{/usuario/archivo1}" role="form" method="POST" th:object="${usuario}" enctype="multipart/form-data">   
+                    
+                    
                         <div class="row">
                             <div class="col-xl-12 col-md-12 mb-12">
 

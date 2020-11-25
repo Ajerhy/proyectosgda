@@ -1,5 +1,10 @@
 package net.sgda.controlador;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -109,6 +114,7 @@ public class UsuarioControlador {
                 usuario.setIMAGEN(nombreImagen);
             }
         }
+        
         //servicioUsuario.guardar(usuario);
         System.out.println("Usuarios:"+usuario);
                 attributes
@@ -118,6 +124,31 @@ public class UsuarioControlador {
         return "redirect:/usuario/listar";
     }
     
+    
+    @PostMapping("/archivo1")
+    public String Archivo1(@ModelAttribute("usuario") 
+            Usuario usuario, 
+            BindingResult result, 
+            RedirectAttributes attributes, 
+            @RequestParam("IMAGEN") MultipartFile multipart) throws IOException {
+        
+        if (multipart == null || multipart.isEmpty()) {
+            attributes.addFlashAttribute("msg", "Por favor Seleccione un Archivo");
+            return "redirect:/usuario/crear";
+        }
+        StringBuilder builder = new StringBuilder();
+        builder.append(System.getProperty("user.home"));
+        builder.append(File.separator);
+        builder.append("spring_imagen_ejemplo");
+        builder.append(File.separator);
+        builder.append(multipart.getOriginalFilename());
+
+        byte[] fileBytes = multipart.getBytes();
+        Path path = Paths.get(builder.toString());
+        Files.write(path, fileBytes);
+        attributes.addFlashAttribute("msg", "Archivo Subido [" + builder.toString() + "]");
+        return "redirect:/usuario/crear";
+    }
     
     
     //@RequestMapping(value = "/eliminar/{ID}", method=RequestMethod.POST)
